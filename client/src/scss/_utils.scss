@@ -1,0 +1,21 @@
+@import 'variables';
+
+// Text manip
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+.text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.table-responsive-wrapper {
+  overflow-x: auto;
+}
+
+.text-italic {
+  font-style: italic;
+}

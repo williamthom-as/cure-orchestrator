@@ -1,0 +1,145 @@
+label {
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+input {
+  width: 100%;
+  margin-bottom: 0.5rem;
+  border: 1px solid $gray-300;
+  border-radius: 3px;
+  padding: 0.25rem;
+
+  &::placeholder {
+    font-size: 0.85rem;
+  }
+}
+
+input[type=file] {
+  border: none;
+  margin: 0.5rem 0;
+}
+
+select {
+  appearance: none;
+  background-color: white;
+  border: 1px solid $gray-300;
+  border-radius: 3px;
+
+  padding: 0.25rem;
+  margin: 0 0 0.5rem;
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: inherit;
+  line-height: inherit;
+}
+
+.select2-container--default {
+  margin-bottom: 0.5rem;
+}
+
+.select2-selection__clear {
+  color: $red;
+}
+
+.select2-container .select2-selection--single {
+  height: 30px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+  color: var(--text-primary);
+}
+
+.select2-dropdown,
+.select2-container--default .select2-selection--single,
+.select2-container--default .select2-selection--multiple,
+.select2-container--default.select2-container--focus .select2-selection--single,
+.select2-container--default.select2-container--focus .select2-selection--multiple {
+  border: 1px solid $gray-300;
+}
+
+.select2-search__field {
+  margin-bottom: 0;
+}
+
+.form-group {
+  margin-bottom: 0.5rem;
+}
+
+.form-inline {
+  display: flex;
+  flex-flow: row nowrap;
+
+  > * {
+    padding: 0.5rem;
+    width: 100%;
+  }
+}
+
+// Form Builder section, to move to seperate scss file if it pollutes too much
+
+section.form-section {
+  $gutter: 0.5rem;
+  
+  margin-bottom: calc($gutter * 4);
+
+  // > h1, h2, h3, h4, h5, h6 {
+  //   padding-bottom: $gutter;
+  //   margin-bottom: calc($gutter * 2);
+  //   border-bottom: 1px solid $gray-300;
+  // }
+
+  .action-header {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: baseline;
+
+    padding: $gutter;
+    margin: $gutter 0;
+
+    border-radius: 3px;
+
+    &.solid {
+      background-color: $gray-100;
+
+      &.darker {
+        background-color: darken($gray-100, 5%);
+      }
+    }
+
+    > h1, h2, h3, h4, h5, h6 {
+      margin: 0;
+      padding: 0;
+      border: none;
+    }
+  }
+
+  .button-group {
+    text-align: right;
+  }
+
+  .rules-container {
+    margin: 0 0 0 1rem;
+    // border-bottom: 1px solid $gray-300;
+
+    > h1, h2, h3, h4, h5, h6 {
+      border: none;
+    }
+
+    .rules-block {
+      // background-color: $gray-100;
+      border-left: 2px solid $gray-100;
+      padding: 0 0 calc($gutter * 2) calc($gutter * 2);
+
+      &:hover {
+        border-left: 2px solid $green;
+      }
+    }
+
+    &.no-margin {
+      margin: 0;
+    }
+  }
+}

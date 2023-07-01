@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require "cure/orchestrator"
+
+Cure::Orchestrator.start

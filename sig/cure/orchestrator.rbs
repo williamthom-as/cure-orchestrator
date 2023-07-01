@@ -1,0 +1,7 @@
+module Cure
+  module Orchestrator
+    VERSION: String
+
+    def self.start: -> void
+  end
+end

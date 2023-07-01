@@ -1,0 +1,8 @@
+module Cure
+  module Orchestrator
+    module Response
+      def error: (obj: Object) -> Hash[Symbol, Object]
+      def success: (obj: Object) -> Hash[Symbol, Object]
+    end
+  end
+end

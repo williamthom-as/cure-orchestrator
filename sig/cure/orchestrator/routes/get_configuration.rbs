@@ -1,0 +1,15 @@
+module Cure
+  module Orchestrator
+    module Routes
+      class GetConfiguration
+        CONFIG_FILE_LOCATION: String
+
+        def call: -> Hash[Symbol, Object]
+
+        private
+
+        def config_file: () -> (nil | Hash[untyped, untyped])
+      end
+    end
+  end
+end

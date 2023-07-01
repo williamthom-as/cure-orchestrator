@@ -1,0 +1,77 @@
+pre {
+  background-color: $gray-950;
+  color: $white;
+  padding: 1rem;
+  border-radius: 3px;
+
+  white-space: pre-wrap;
+}
+
+.string {
+  color: $green;
+}
+
+.number {
+  color: $blue;
+}
+
+.boolean {
+  color: $pink;
+}
+
+.null {
+  color: $blue;
+}
+
+.key {
+  color: $blue;
+}
+
+.key {
+  // padding-left: 1rem;
+
+  .pointer {
+    cursor: pointer;
+  }
+
+  .title {
+    color: $blue;
+  }
+
+  .values {
+    margin-left: 1rem;
+    .label {
+      color: $green;
+    }
+    .properties {
+      // color: var(--main-text);
+      font-weight: bold;
+    }
+  }
+}
+
+.accordion {
+  background-color: $gray-950;
+  border-radius: 3px;
+  padding: 1rem;
+
+  .key {
+    padding-left: 1rem;
+    .title {
+      font-weight: bold;
+      color: $blue;
+    }
+
+    .values {
+      margin-left: 1rem;
+      .label {
+        font-weight: bold;
+        color: $green;
+      }
+      .properties {
+        font-weight: normal;
+        color: var(--main-text);
+      }
+    }
+  }
+}

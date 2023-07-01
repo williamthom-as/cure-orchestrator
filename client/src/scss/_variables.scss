@@ -1,0 +1,164 @@
+// Raw colours
+$charcoal:hsl(225, 9%, 18%);
+$blue:  	hsl(247, 100%, 73%);
+$pink:  	hsl(349, 100%, 72%);
+$night:   hsl(240, 35%, 34%);
+$offwhite:  hsl(229, 44%, 90%);
+
+$red:    hsl(343, 100%, 39%);
+$orange: hsl(13, 100%, 66%);
+$yellow: hsl(60, 92%, 71%);
+$green:  hsl(163, 100%, 35%);
+$cyan:   hsl(203, 100%, 49%);
+
+// Black and white shades
+$white: #fff;
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-300: #dee2e6;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
+$gray-600: #868e96;
+$gray-700: #495057;
+$gray-800: #343a40;
+$gray-900: #212529;
+$gray-950: #14171a;
+$gray-1000: #101215;
+$gray-1100: #111111;
+
+html {
+  --primary-hue: 0;
+  --primary-saturation: 0%;
+  --primary-lightness: 10%;
+
+  // Lite theme
+  --primary-color-light: hsl(var(--primary-hue) var(--primary-saturation) var(--primary-lightness));
+  --primary-text-light: hsl(var(--primary-hue) var(--primary-saturation) 20%);
+  --secondary-text-light: hsl(var(--primary-hue) 30% 30%);
+
+  --menu-background-light: var(--primary-color-light);
+  --menu-link-hover-light: hsl(
+    var(--primary-hue) calc(var(--primary-saturation) / 2) calc(var(--primary-lightness) / 1.5)
+  );
+  --menu-text-color-light: hsl(var(--primary-hue) 50% 95%);
+
+  --page-background-light: hsl(var(--primary-hue) 20% 95%);
+  --page-background-secondary-light: #ced4da;
+
+  --text-muted-light: #343a40;
+  --tooltip-background-light: hsl(var(--primary-hue) 50% 2%);
+
+  --panel-background-light: #fff;
+
+  // Dark theme
+  --primary-color-dark: hsl(
+    var(--primary-hue) calc(var(--primary-saturation) / 2) calc(var(--primary-lightness) / 1.25)
+  );
+  --primary-text-dark: hsl(var(--primary-hue) 15% 85%);
+  --secondary-text-dark: hsl(var(--primary-hue) 5% 65%);
+
+  // --menu-background-dark: var(--primary-color-dark);
+  // --menu-link-hover-dark: hsl(
+  //   var(--primary-hue) calc(var(--primary-saturation) / 2) calc(var(--primary-lightness) / 2)
+  // );
+  // --menu-text-color-dark: hsl(var(--primary-hue) 50% 5%);
+
+  --menu-background-dark: var(--primary-color-light);
+  --menu-link-hover-dark: hsl(
+    var(--primary-hue) calc(var(--primary-saturation) / 2) calc(var(--primary-lightness) / 1.5)
+  );
+  --menu-text-color-dark: hsl(var(--primary-hue) 50% 95%);
+
+
+  --page-background-dark: hsl(var(--primary-hue) 10% 5%);
+  --page-background-secondary-dark: #343a40;
+
+  --text-muted-dark: #ced4da;
+  
+  --tooltip-background-dark: hsl(var(--primary-hue) 50% 15%);
+
+  --panel-background-dark: #1a1a1a;
+}
+
+:root {
+  color-scheme: light;
+
+  /* Defaults */
+  --primary: var(--primary-color-light);
+  --primary-text: var(--primary-text-light);
+  --secondary-text: var(--secondary-text-light);
+
+  --menu-background: var(--menu-background-light);
+  --menu-link-hover: var(--menu-link-hover-light);
+  --menu-text-color: var(--menu-text-color-light);
+
+  --page-background: var(--page-background-light);
+  --page-background-secondary: var(--page-background-secondary-light);
+  --text-muted: var(--text-muted-light);
+
+  --tooltip-background: var(--tooltip-background-light);
+  
+  --panel-background: var(--panel-background-light);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+
+    --primary: var(--primary-color-dark);
+    --primary-text: var(--primary-text-dark);
+    --secondary-text: var(--secondary-text-dark);
+
+    --menu-background: var(--menu-background-dark);
+    --menu-link-hover: var(--menu-link-hover-dark);
+    --menu-text-color: var(--menu-text-color-dark);
+
+    --page-background: var(--page-background-dark);
+    --page-background-secondary: var(--page-background-secondary-dark);
+    --text-muted: var(--text-muted-dark);
+
+    --tooltip-background: var(--tooltip-background-dark);
+
+    --panel-background: var(--panel-background-dark);
+  }
+}
+
+[color-scheme="light"] {
+  color-scheme: light;
+
+  --primary: var(--primary-color-light);
+  --primary-text: var(--primary-text-light);
+  --secondary-text: var(--secondary-text-light);
+
+  --menu-background: var(--menu-background-light);
+  --menu-link-hover: var(--menu-link-hover-light);
+  --menu-text-color: var(--menu-text-color-light);
+
+  --page-background: var(--page-background-light);
+  --page-background-secondary: var(--page-background-secondary-light);
+  --text-muted: var(--text-muted-light);
+
+  --tooltip-background: var(--tooltip-background-light);
+
+  --panel-background: var(--panel-background-light);
+}
+
+[color-scheme="dark"] {
+  color-scheme: dark;
+
+  --primary: var(--primary-color-dark);
+  --primary-text: var(--primary-text-dark);
+  --secondary-text: var(--secondary-text-dark);
+
+  --menu-background: var(--menu-background-dark);
+  --menu-link-hover: var(--menu-link-hover-dark);
+  --menu-text-color: var(--menu-text-color-dark);
+
+  --page-background: var(--page-background-dark);
+  --page-background-secondary: var(--page-background-secondary-dark);
+  --text-muted: var(--text-muted-dark);
+
+  --tooltip-background: var(--tooltip-background-dark);
+
+  --panel-background: var(--panel-background-dark);
+}

@@ -1,0 +1,37 @@
+.panel {
+  width: 100%;
+  border-radius: 0.3rem;
+  background-color: var(--panel-background);
+  overflow-x: auto;
+  margin-bottom: $gutter;
+
+  .panel-header {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: calc($gutter / 2) $gutter;
+
+    .title {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      font-weight: 600;
+      font-family: 'Space Mono';
+
+      color: $green;
+    }
+
+    .actions {
+      cursor: pointer;
+
+      i {
+        color: var(--text-muted);
+      }
+    }
+  }
+
+  .panel-body {
+    padding: calc($gutter / 2) $gutter $gutter $gutter;
+  }
+
+}
