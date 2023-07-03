@@ -221,8 +221,13 @@ nav {
       padding-right: calc($gutter / 2);
     }
 
-    &:last-of-type:not(:only-of-type) {
+    &:last-child {
       padding-left: calc($gutter / 2);
+      padding-right: 0;
+    }
+
+    &:only-of-type {
+      padding-left: 0;
       padding-right: 0;
     }
   }

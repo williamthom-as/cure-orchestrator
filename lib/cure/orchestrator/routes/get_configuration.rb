@@ -7,13 +7,17 @@ module Cure
     module Routes
       class GetConfiguration < BaseRoute
 
-        CONFIG_FILE_LOCATION = "/etc/cure/config.yml"
+        CONFIG_FILE_LOCATION = "/etc/cure/config.json"
 
         def call
           ret = config_file
-          return error("No config file found at #{CONFIG_FILE_LOCATION}") unless ret
+          unless ret
+            return success({
+              config_file: nil, message: "No config file found at #{CONFIG_FILE_LOCATION}"
+            })
+          end
 
-          success({config_file: ret})
+          success({config_file: ret, message: "Configuration is valid."})
         end
 
         private

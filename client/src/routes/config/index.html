@@ -1,4 +1,5 @@
 <template>
+  <require from="./viewer"></require>
   <div class="page-header">
     <div class="title">
       Configuration
@@ -13,10 +14,40 @@
     <div class="col">
       <panel>
         <div slot="header">
-          <div class="title">Current Settings</div>
+          <div class="title">Current Configuration</div>
         </div>
         <div slot="body">
-
+          <div>
+            Status: ${message}
+          </div>
+        </div>
+      </panel>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <panel show-header.bind="true">
+        <div slot="header">
+          <div class="title">Update Configuration</div>
+        </div>
+        <div slot="body">
+          <validatable-field
+              placeholder="Enter a field name of your choice"
+              value.bind="configFile.key"
+              errors.bind="errors.column"
+              label="Column"
+              type="text">
+          </validatable-field>
+        </div>
+      </panel>
+    </div>
+    <div class="col">
+      <panel show-header.bind="true">
+        <div slot="header">
+          <div class="title">Viewer</div>
+        </div>
+        <div slot="body">
+          <viewer if.bind="configFile" watch.bind="configFile"></viewer>
         </div>
       </panel>
     </div>

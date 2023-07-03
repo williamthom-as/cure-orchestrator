@@ -129,20 +129,4 @@ export class AjaxService {
           throw error;
         });
   }
-
-  // userDetails() {
-  //     return this.fetch('/configuration')
-  //         .then(json => {
-  //                 console.log('In user fetails')
-  //                 this.user = { username: json.username, name: json.name, token: localStorage.getItem('access_token'), isAdmin: json.isAdmin };
-  //                 console.log(this.user)
-  //             },
-  //             error => {
-  //                 console.log('Nulling user!')
-  //                 this.user = null;
-  //                 localStorage.removeItem('access_token');
-  //                 throw error;
-  //             });
-  // }
-
 }
