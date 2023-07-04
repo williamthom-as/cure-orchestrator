@@ -11,6 +11,17 @@
 
   transition: all 0.15s ease;
 
+  &:disabled {
+    background-color: $gray-800 !important;
+    border-color: $gray-800 !important;
+    color: $gray-700 !important;
+    cursor: default !important;
+
+    &:hover {
+      box-shadow: none;
+    }
+  }
+
   &.btn-sm {
     font-size: 0.85rem;
     padding: 0.25rem 0.5rem;
@@ -84,7 +95,6 @@
       background-color: $gray-700;
     }
   }
-
 
   &.btn-danger {
     border-color: $red;

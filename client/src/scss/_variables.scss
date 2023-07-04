@@ -1,8 +1,8 @@
 // Raw colours
-$charcoal:hsl(225, 9%, 18%);
+$charcoal:  hsl(225, 9%, 18%);
 $blue:  	hsl(247, 100%, 73%);
 $pink:  	hsl(349, 100%, 72%);
-$night:   hsl(240, 35%, 34%);
+$night:     hsl(240, 35%, 34%);
 $offwhite:  hsl(229, 44%, 90%);
 
 $red:    hsl(343, 100%, 39%);
@@ -37,47 +37,38 @@ html {
   --secondary-text-light: hsl(var(--primary-hue) 30% 30%);
 
   --menu-background-light: var(--primary-color-light);
-  --menu-link-hover-light: hsl(
-    var(--primary-hue) calc(var(--primary-saturation) / 2) calc(var(--primary-lightness) / 1.5)
-  );
+  --menu-link-hover-light: hsl(var(--primary-hue) calc(var(--primary-saturation) / 2) calc(var(--primary-lightness) / 1.5));
   --menu-text-color-light: hsl(var(--primary-hue) 50% 95%);
-
   --page-background-light: hsl(var(--primary-hue) 20% 95%);
   --page-background-secondary-light: #ced4da;
+  --text-muted-light: #f8f9fa;
 
-  --text-muted-light: #343a40;
   --tooltip-background-light: hsl(var(--primary-hue) 50% 2%);
-
   --panel-background-light: #fff;
+  --input-background-light: #e9ecef;
+
+  --tabs-button-light: #f8f9fa;
+  --tabs-button-active-light: #e9ecef;
+  --tabs-button-font-light: #868e96;
 
   // Dark theme
-  --primary-color-dark: hsl(
-    var(--primary-hue) calc(var(--primary-saturation) / 2) calc(var(--primary-lightness) / 1.25)
-  );
-  --primary-text-dark: hsl(var(--primary-hue) 15% 85%);
-  --secondary-text-dark: hsl(var(--primary-hue) 5% 65%);
-
-  // --menu-background-dark: var(--primary-color-dark);
-  // --menu-link-hover-dark: hsl(
-  //   var(--primary-hue) calc(var(--primary-saturation) / 2) calc(var(--primary-lightness) / 2)
-  // );
-  // --menu-text-color-dark: hsl(var(--primary-hue) 50% 5%);
-
+  --primary-color-dark: hsl(var(--primary-hue) calc(var(--primary-saturation) / 2) calc(var(--primary-lightness) / 1.25));
+  --primary-text-dark: #adb5bd;
+  --secondary-text-dark: #495057;
   --menu-background-dark: var(--primary-color-light);
-  --menu-link-hover-dark: hsl(
-    var(--primary-hue) calc(var(--primary-saturation) / 2) calc(var(--primary-lightness) / 1.5)
-  );
-  --menu-text-color-dark: hsl(var(--primary-hue) 50% 95%);
-
-
-  --page-background-dark: hsl(var(--primary-hue) 10% 5%);
+  --menu-link-hover-dark: hsl(var(--primary-hue) calc(var(--primary-saturation) / 2) calc(var(--primary-lightness) / 1.5));
+  --menu-text-color-dark: --primary-text-dark; //hsl(var(--primary-hue) 50% 95%);
+  --page-background-dark: #121212;
   --page-background-secondary-dark: #343a40;
-
   --text-muted-dark: #ced4da;
-  
-  --tooltip-background-dark: hsl(var(--primary-hue) 50% 15%);
 
+  --tooltip-background-dark: hsl(var(--primary-hue) 50% 15%);
   --panel-background-dark: #1a1a1a;
+  --input-background-dark: #14171a;
+
+  --tabs-button-dark: #14171a;
+  --tabs-button-active-dark: #101215;
+  --tabs-button-font-dark: #343a40;
 }
 
 :root {
@@ -97,8 +88,12 @@ html {
   --text-muted: var(--text-muted-light);
 
   --tooltip-background: var(--tooltip-background-light);
-  
   --panel-background: var(--panel-background-light);
+  --input-background: var(--input-background-light);
+
+  --tabs-button: var(--tabs-button-light);
+  --tabs-button-active: var(--tabs-button-active-light);
+  --tabs-button-font: var(--tabs-button-font-light);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -118,8 +113,12 @@ html {
     --text-muted: var(--text-muted-dark);
 
     --tooltip-background: var(--tooltip-background-dark);
-
     --panel-background: var(--panel-background-dark);
+    --input-background: var(--input-background-dark);
+
+    --tabs-button: var(--tabs-button-dark);
+    --tabs-button-active: var(--tabs-button-active-dark);
+    --tabs-button-font: var(--tabs-button-font-dark);
   }
 }
 
@@ -139,8 +138,12 @@ html {
   --text-muted: var(--text-muted-light);
 
   --tooltip-background: var(--tooltip-background-light);
-
   --panel-background: var(--panel-background-light);
+  --input-background: var(--input-background-light);
+
+  --tabs-button: var(--tabs-button-light);
+  --tabs-button-active: var(--tabs-button-active-light);
+  --tabs-button-font: var(--tabs-button-font-light);
 }
 
 [color-scheme="dark"] {
@@ -159,6 +162,10 @@ html {
   --text-muted: var(--text-muted-dark);
 
   --tooltip-background: var(--tooltip-background-dark);
-
   --panel-background: var(--panel-background-dark);
+  --input-background: var(--input-background-dark);
+
+  --tabs-button: var(--tabs-button-dark);
+  --tabs-button-active: var(--tabs-button-active-dark);
+  --tabs-button-font: var(--tabs-button-font-dark);
 }

@@ -120,6 +120,7 @@ export class AjaxService {
     this.user = null;
     localStorage.removeItem('access_token');
   }
+
   getConfig() {
     return this.fetch('/api/v1/config')
       .then(json => {
@@ -129,4 +130,15 @@ export class AjaxService {
           throw error;
         });
   }
+
+  updateConfig(model) {
+    return this.putUsingJSON('/api/v1/config', model)
+      .then(json => {
+          return json;
+        },
+        error => {
+          throw error;
+        });
+  }
+
 }

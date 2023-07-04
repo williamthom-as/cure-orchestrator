@@ -12,17 +12,16 @@
       
       font-weight: bold;
       text-align: center;
-      color: $gray-600;
+      color: var(--tabs-button-font);
 
       border-radius: 3px;
-      background-color: $gray-100;
+      background-color: var(--tabs-button);
       padding: 0.5rem;
 
       &.active {
-        // color: $gray-800;
-        background-color: $gray-200;
-        // color: white;
+        background-color: var(--tabs-button-active);
         color: rgb(97, 76, 255);
+        cursor: default;
       }
 
       &:first-child {

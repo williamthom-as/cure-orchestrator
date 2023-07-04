@@ -18,6 +18,15 @@ module Cure
         def call
           raise NotImplementedError, "#{self.class} has not implemented method '#{__method__}'"
         end
+
+        private
+
+        def parsed_request
+          body = request.body.read
+          return {} unless body
+
+          JSON.parse(body)
+        end
       end
     end
   end

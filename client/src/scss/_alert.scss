@@ -1,7 +1,8 @@
 .alert {
   display: flex;
   flex-flow: row wrap;
-  justify-content: center;
-
+  color: $gray-400;
+  background-color: $night;
+  border-radius: 0.3rem;
   padding: 1rem;
 }

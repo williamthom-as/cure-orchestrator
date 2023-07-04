@@ -1,10 +1,11 @@
-import { inject } from 'aurelia-framework';
+import { inject, bindable, bindingMode, BindingEngine } from 'aurelia-framework';
 
 @inject('AjaxService')
 export class Index {
+  @bindable({ defaultBindingMode: bindingMode.twoWay }) configFile = null;
+  // configFile = null;
 
   message = null;
-  configFile = null;
 
   constructor(ajax) {
     this.ajax = ajax;

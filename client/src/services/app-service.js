@@ -14,4 +14,10 @@ export class AppService {
       this.ea.publish(new ToastMessage(title, message, "info"))
     });
   }
+
+  showError(title, message) {
+    this.taskQueue.queueTask(() => {
+      this.ea.publish(new ToastMessage(title, message, "danger"))
+    });
+  }
 }

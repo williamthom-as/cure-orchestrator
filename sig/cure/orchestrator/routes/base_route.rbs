@@ -6,6 +6,10 @@ module Cure
         attr_reader request: untyped
 
         def call: -> Hash[Symbol, Object]
+
+        private
+
+        def parsed_request: -> Hash[Symbol, Object]
       end
     end
   end

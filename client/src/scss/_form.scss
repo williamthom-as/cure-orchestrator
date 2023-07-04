@@ -1,17 +1,24 @@
 label {
-  font-size: 0.75rem;
+  font-size: 0.85rem;
   font-weight: 600;
+  color: var(--text-secondary);
 }
 
 input {
   width: 100%;
-  margin-bottom: 0.5rem;
-  border: 1px solid $gray-300;
+  margin-top: 0.5rem;
+  border: 1px solid var(--input-background);
   border-radius: 3px;
   padding: 0.25rem;
+  background-color: var(--input-background);
+  color: var(--text-primary);
 
   &::placeholder {
     font-size: 0.85rem;
+  }
+
+  &.is-invalid {
+    border-color: $red;
   }
 }
 
@@ -61,6 +68,12 @@ select {
 
 .select2-search__field {
   margin-bottom: 0;
+}
+
+.errors {
+  span {
+    font-size: 0.85rem;
+  }
 }
 
 .form-group {

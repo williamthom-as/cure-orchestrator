@@ -3,7 +3,7 @@
 require "json"
 require "sinatra/base"
 require "sinatra/namespace"
-require 'sinatra/cross_origin'
+require "sinatra/cross_origin"
 
 require "cure/orchestrator/routes"
 
@@ -18,7 +18,9 @@ module Cure
 
       before do
         content_type :json
-        response.headers['Access-Control-Allow-Origin'] = '*'
+        response.headers["Access-Control-Allow-Methods"] = "OPTIONS, GET, PUT, POST, DELETE"
+        response.headers["Access-Control-Allow-Headers"] = "X-Requested-With, X-HTTP-Method-Override, Content-Type, Cache-Control, Accept"
+        response.headers["Access-Control-Allow-Origin"] = "*"
       end
 
       # Home
@@ -30,12 +32,17 @@ module Cure
         get "/config" do
           Cure::Orchestrator::Routes::GetConfiguration.new(request).call.to_json
         end
+
+        put "/config" do
+          Cure::Orchestrator::Routes::PutConfiguration.new(request).call.to_json
+        end
       end
 
       options "*" do
-        response.headers["Allow"] = "GET, PUT, POST, DELETE, OPTIONS"
-        response.headers["Access-Control-Allow-Headers"] = "Authorization, Content-Type, Accept, X-User-Email, X-Auth-Token"
+        response.headers["Access-Control-Allow-Methods"] = "OPTIONS, GET, PUT, POST, DELETE"
+        response.headers["Access-Control-Allow-Headers"] = "X-Requested-With, X-HTTP-Method-Override, Content-Type, Cache-Control, Accept"
         response.headers["Access-Control-Allow-Origin"] = "*"
+        halt 200
       end
     end
   end

@@ -1,0 +1,14 @@
+module Cure
+  module Orchestrator
+    module Routes
+      class PutConfiguration < BaseRoute
+        CONFIG_FILE_LOCATION: String
+        REQUIRED_CONF_KEYS: Array[String]
+
+        private
+
+        def write_config_file: (Hash[Symbol,Object]) -> void
+      end
+    end
+  end
+end

@@ -1,0 +1,22 @@
+<template>
+  <div class="alert alert-danger" if.bind="errorMessage">
+    ${errorMessage}
+  </div>
+  <validatable-field
+      placeholder="Location of CSV files"
+      value.bind="model.input_directory"
+      errors.bind="errors.input_directory"
+      label="Input Directory"
+      type="text">
+  </validatable-field>
+  <validatable-field
+      placeholder="Location of template files"
+      value.bind="model.template_directory"
+      errors.bind="errors.template_directory"
+      label="Template Directory"
+      type="text">
+  </validatable-field>
+  <div class="text-right" style="margin: 1.5rem 0 0">
+    <button type="submit" class="btn btn-primary" click.trigger="submit()" disabled.bind="hasError">Submit</button>
+  </div>
+</template>

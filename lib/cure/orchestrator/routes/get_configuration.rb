@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "yaml"
+require "json"
 
 module Cure
   module Orchestrator
@@ -25,7 +25,7 @@ module Cure
         def config_file
           return nil unless File.exist? CONFIG_FILE_LOCATION
 
-          YAML.safe_load(File.read(CONFIG_FILE_LOCATION))
+          JSON.parse(File.read(CONFIG_FILE_LOCATION))
         end
       end
     end

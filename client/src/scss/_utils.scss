@@ -19,3 +19,23 @@
 .text-italic {
   font-style: italic;
 }
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-success, .text-green {
+  color: $green;
+}
+
+.text-danger, .text-red {
+  color: $red;
+}

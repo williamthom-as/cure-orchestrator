@@ -1,5 +1,6 @@
 <template>
   <require from="./viewer"></require>
+  <require from="./form"></require>
   <div class="page-header">
     <div class="title">
       Configuration
@@ -17,8 +18,9 @@
           <div class="title">Current Configuration</div>
         </div>
         <div slot="body">
-          <div>
-            Status: ${message}
+          <div class="alert info">
+            <strong>Status:</strong>&nbsp;
+            <span>${message}</span>
           </div>
         </div>
       </panel>
@@ -31,13 +33,7 @@
           <div class="title">Update Configuration</div>
         </div>
         <div slot="body">
-          <validatable-field
-              placeholder="Enter a field name of your choice"
-              value.bind="configFile.key"
-              errors.bind="errors.column"
-              label="Column"
-              type="text">
-          </validatable-field>
+          <form if.bind="configFile" model.bind="configFile"></form>
         </div>
       </panel>
     </div>

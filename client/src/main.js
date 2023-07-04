@@ -1,5 +1,6 @@
 import { AppService } from "./services/app-service";
 import { AjaxService } from "./services/ajax-service";
+import Validation from 'bcx-validation';
 
 export function configure(aurelia) {
   aurelia.use.standardConfiguration();
@@ -21,6 +22,7 @@ export function configure(aurelia) {
   // Service registry
   aurelia.use.singleton('AppService', AppService);
   aurelia.use.singleton('AjaxService', AjaxService);
+  aurelia.use.transient('Validation', Validation);
 
   aurelia.start().then(() => aurelia.setRoot());
 }
