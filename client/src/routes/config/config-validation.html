@@ -10,7 +10,7 @@
     </div>
     <div slot="body">
       <spinner if.bind="isProcessing"></spinner>
-      <table if.bind="!isProcessing" class="table table-overflow">
+      <table if.bind="!isProcessing" class="table">
         <thead>
           <tr>
             <th></th>
@@ -24,8 +24,8 @@
               <i class="fa fa-check text-green" if.bind="result.checks[key].valid"></i>
               <i class="fa fa-times text-danger" else></i>
             </td>
-            <td>${key}</td>
-            <td>${result.checks[key].message}</td>
+            <td class="text-truncate">${key}</td>
+            <td class="text-truncate"> ${result.checks[key].message}</td>
           </tr>
         </tbody>
       </table>

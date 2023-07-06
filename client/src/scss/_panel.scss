@@ -10,14 +10,13 @@
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
-    padding: calc($gutter / 2) $gutter;
+    padding: calc($gutter / 2) 1rem;
 
     .title {
       font-size: 0.85rem;
       text-transform: uppercase;
       font-weight: 600;
       font-family: 'Open Sans', sans-serif;
-
       color: $green;
     }
 
