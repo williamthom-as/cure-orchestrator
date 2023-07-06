@@ -141,4 +141,13 @@ export class AjaxService {
         });
   }
 
+  getConfigValidation() {
+    return this.fetch('/api/v1/config/validate')
+      .then(json => {
+          return json;
+        },
+        error => {
+          throw error;
+        });
+  }
 }

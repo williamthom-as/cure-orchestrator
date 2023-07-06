@@ -1,4 +1,5 @@
-import {inject} from 'aurelia-framework';
+import { inject } from 'aurelia-framework';
+import { activationStrategy } from 'aurelia-router';
 
 @inject('AppService')
 export class App {
@@ -6,6 +7,13 @@ export class App {
 
   constructor(appService) {
     this.appService = appService;
+  }
+
+  bind() {
+    const scheme = localStorage.getItem('color_scheme');
+    if (scheme) {
+      this.changeScheme(scheme);
+    }
   }
 
   configureRouter(config, router) {
@@ -55,6 +63,8 @@ export class App {
 
   changeScheme(scheme) {
     this.scheme = scheme;
+    localStorage.setItem('color_scheme', scheme);
+
     document.firstElementChild.setAttribute('color-scheme', scheme);
   }
 }

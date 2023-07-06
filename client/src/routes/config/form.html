@@ -3,6 +3,13 @@
     ${errorMessage}
   </div>
   <validatable-field
+      placeholder="Location of SQLite database"
+      value.bind="model.database_file_location"
+      errors.bind="errors.database_file_location"
+      label="Database Location"
+      type="text">
+  </validatable-field>
+  <validatable-field
       placeholder="Location of CSV files"
       value.bind="model.input_directory"
       errors.bind="errors.input_directory"

@@ -1,0 +1,21 @@
+#!/usr/bin/env ruby
+
+require "sequel"
+require "json"
+
+config_file_location = "/etc/cure/config.json"
+
+unless File.exist? config_file_location
+  raise "No config file located at #{config_file_location}. Please run init-setup first."
+end
+
+config = JSON.parse(File.read(config_file_location))
+
+DATABASE = Sequel.sqlite(config["database_file_location"])
+
+unless DATABASE.table_exists? :history
+  DATABASE.create_table :history do
+    primary_key :id
+    column :name, String
+  end
+end

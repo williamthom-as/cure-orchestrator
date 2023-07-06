@@ -12,6 +12,7 @@ module Cure
         REQUIRED_CONF_KEYS = %w[
           input_directory
           template_directory
+          database_file_location
         ].freeze
 
         def call

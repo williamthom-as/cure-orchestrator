@@ -1,0 +1,13 @@
+module Cure
+  module Orchestrator
+    module Services
+      class ConfigurationService
+        CONFIG_FILE_LOCATION: String
+
+        def config_file: -> Hash[String, Object]
+
+        def validate_config_file: -> Hash[Symbol, Object]
+      end
+    end
+  end
+end

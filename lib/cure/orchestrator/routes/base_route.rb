@@ -2,6 +2,9 @@
 
 require "cure/orchestrator/routes/response"
 
+# services
+require "cure/orchestrator/services/configuration_service"
+
 module Cure
   module Orchestrator
     module Routes

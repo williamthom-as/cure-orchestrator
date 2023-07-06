@@ -16,7 +16,7 @@
       font-size: 0.85rem;
       text-transform: uppercase;
       font-weight: 600;
-      font-family: 'Space Mono';
+      font-family: 'Open Sans', sans-serif;
 
       color: $green;
     }
@@ -24,8 +24,12 @@
     .actions {
       cursor: pointer;
 
-      i {
+      span {
         color: var(--text-muted);
+
+        &:hover {
+          color: var(--text-primary);
+        }
       }
     }
   }

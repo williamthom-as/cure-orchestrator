@@ -2,7 +2,7 @@
 
 :root {
   font-size: 14px;
-  font-family: "JetBrains Mono", serif;
+  font-family: "JetBrains Mono", sans-serif;
   --text-primary: var(--primary-text);
   --text-secondary: var(--secondary-text);
   --bg-primary: var(--primary);
@@ -207,6 +207,7 @@ nav {
   display: flex;
   flex-flow: row nowrap;
   width: 100%;
+  //margin-bottom: $gutter;
 
   .col {
     display: flex;

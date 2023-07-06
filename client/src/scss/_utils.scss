@@ -12,7 +12,7 @@
   white-space: nowrap;
 }
 
-.table-responsive-wrapper {
+.table-overflow {
   overflow-x: auto;
 }
 
@@ -38,4 +38,8 @@
 
 .text-danger, .text-red {
   color: $red;
+}
+
+.mb-1 {
+  margin-bottom: 1rem;
 }

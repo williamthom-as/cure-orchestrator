@@ -34,14 +34,14 @@ html {
   // Lite theme
   --primary-color-light: hsl(var(--primary-hue) var(--primary-saturation) var(--primary-lightness));
   --primary-text-light: hsl(var(--primary-hue) var(--primary-saturation) 20%);
-  --secondary-text-light: hsl(var(--primary-hue) 30% 30%);
+  --secondary-text-light: hsl(var(--primary-hue) var(--primary-saturation) 30%);
 
   --menu-background-light: var(--primary-color-light);
   --menu-link-hover-light: hsl(var(--primary-hue) calc(var(--primary-saturation) / 2) calc(var(--primary-lightness) / 1.5));
   --menu-text-color-light: hsl(var(--primary-hue) 50% 95%);
   --page-background-light: hsl(var(--primary-hue) 20% 95%);
   --page-background-secondary-light: #ced4da;
-  --text-muted-light: #f8f9fa;
+  --text-muted-light: #ced4da;
 
   --tooltip-background-light: hsl(var(--primary-hue) 50% 2%);
   --panel-background-light: #fff;

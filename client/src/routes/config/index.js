@@ -3,7 +3,6 @@ import { inject, bindable, bindingMode, BindingEngine } from 'aurelia-framework'
 @inject('AjaxService')
 export class Index {
   @bindable({ defaultBindingMode: bindingMode.twoWay }) configFile = null;
-  // configFile = null;
 
   message = null;
 
@@ -12,11 +11,14 @@ export class Index {
   }
 
   bind() {
+    this.getConfig();
+  }
+
+  getConfig() {
     this.ajax.getConfig()
       .then(json => {
         this.message = json.content.message;
         this.configFile = json.content.config_file;
       });
   }
-
 }

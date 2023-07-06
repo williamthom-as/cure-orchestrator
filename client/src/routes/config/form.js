@@ -1,8 +1,10 @@
 import { AppRouter, Redirect } from 'aurelia-router';
 import { inject, computedFrom, bindable } from 'aurelia-framework';
+import { EventAggregator } from 'aurelia-event-aggregator';
+
 import _ from 'lodash';
 
-@inject(AppRouter, 'AjaxService', 'Validation', 'AppService')
+@inject(AppRouter, EventAggregator, 'AjaxService', 'Validation', 'AppService')
 export class Form {
   @bindable model = null;
 
@@ -10,18 +12,19 @@ export class Form {
   triedOnce = false;
   errorMessage = null;
 
-  constructor(router, ajax, validation, app) {
+  constructor(router, ea, ajax, validation, app) {
     this.router = router;
+    this.ea = ea;
     this.ajax = ajax;
     this.app = app;
     this.validator = validation.generateValidator({
       input_directory: ['mandatory'],
-      template_directory: ['mandatory']
+      template_directory: ['mandatory'],
+      database_file_location: ['mandatory'],
     });
   }
 
   submit() {
-    console.log("here!")
     if (this.isProcessing) return;
 
     this.triedOnce = true;
@@ -34,7 +37,7 @@ export class Form {
           if (json.success) {
             this.errorMessage = null;
 
-            this.router.navigateToRoute('config');
+            this.ea.publish('config-saved');
             this.app.showInfo("Success!", json.content.message);
           } else {
             this.app.showError("Error!", json.content.message);
@@ -51,7 +54,8 @@ export class Form {
   @computedFrom(
     'triedOnce',
     'model.input_directory',
-    'model.template_directory'
+    'model.template_directory',
+    'model.database_file_location',
   )
   get errors() {
     if (!this.triedOnce) return {};

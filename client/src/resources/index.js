@@ -11,6 +11,7 @@ export function configure(config) {
     './elements/validatable-field',
     './elements/validatable-select',
     './elements/validatable-select2',
-    './elements/toasts'
+    './elements/toasts',
+    './elements/spinner'
   ]);
 }

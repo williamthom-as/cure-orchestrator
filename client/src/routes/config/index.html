@@ -1,6 +1,7 @@
 <template>
   <require from="./viewer"></require>
   <require from="./form"></require>
+  <require from="./config-validation"></require>
   <div class="page-header">
     <div class="title">
       Configuration
@@ -13,20 +14,15 @@
   </div>
   <div class="row">
     <div class="col">
-      <panel>
-        <div slot="header">
-          <div class="title">Current Configuration</div>
-        </div>
-        <div slot="body">
-          <div class="alert info">
-            <strong>Status:</strong>&nbsp;
-            <span>${message}</span>
-          </div>
-        </div>
-      </panel>
+      <div if.bind="!configFile" class="alert error">
+        <strong>${message}.</strong>&nbsp;
+      </div>
+      <div else>
+        <config-validation></config-validation>
+      </div>
     </div>
   </div>
-  <div class="row">
+  <div class="row" if.bind="configFile">
     <div class="col">
       <panel show-header.bind="true">
         <div slot="header">
