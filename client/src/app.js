@@ -25,7 +25,7 @@ export class App {
     config.mapUnknownRoutes('not-found.html');
     config.map([{
       route: ['', 'home'],
-      moduleId: './routes/home',
+      moduleId: './routes/home/index',
       name: 'home',
       title: 'Home',
       nav: true,

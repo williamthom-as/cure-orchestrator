@@ -1,0 +1,6 @@
+<template>
+  <span if.bind="!isProcessing" class='${status ? "text-green" : "text-danger"}'>
+    ${status ? "OK" : "Error"}
+  </span>
+  <spinner if.bind="isProcessing"></spinner>
+</template>

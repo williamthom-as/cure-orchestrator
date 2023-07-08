@@ -1,4 +1,5 @@
 <template>
+  <require from="./tiles/config-tile.js"></require>
   <div class="page-header">
     <div class="title">
       Home
@@ -15,7 +16,7 @@
         <div class="title">
           System Status
         </div>
-        <div class="body large-text text-green">
+        <div class="body medium-text text-green">
           OK
         </div>
       </div>
@@ -23,8 +24,8 @@
         <div class="title">
           Configuration
         </div>
-        <div class="body large-text text-green">
-          OK
+        <div class="body medium-text">
+          <config-tile></config-tile>
         </div>
       </div>
       <div class="box">
@@ -60,9 +61,25 @@
           <div class="title">Last Runs</div>
         </div>
         <div slot="body">
-          <div class="text-center" style="margin: 1.5rem 0">
-            You have no recent runs. Would you like to <strong>start one</strong>?
-          </div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Template</th>
+                <th>Status</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td colspan="4" style="padding: 1rem 0">
+                  <div class="alert alert-info text-center">
+                    You have no recent runs. Would you like to start one?
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </panel>
     </div>

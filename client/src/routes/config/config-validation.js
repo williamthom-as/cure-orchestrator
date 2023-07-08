@@ -19,11 +19,9 @@ export class ConfigValidation {
 
   bind() {
     this.getConfigValidation();
-
   }
 
   reload() {
-    console.log("Reloading!")
     this.getConfigValidation();
   }
 
