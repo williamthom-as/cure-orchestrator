@@ -28,22 +28,30 @@ module Cure
         {success: true, content: "Cure Orchestrator Service API"}.to_json
       end
 
-      namespace "/api/v1" do
+      namespace "/api/v1/config" do
         # Get configuration file
-        get "/config" do
+        get "" do
           Cure::Orchestrator::Routes::GetConfiguration.new(request).call.to_json
         end
 
         # Update configuration file
-        put "/config" do
+        put "" do
           Cure::Orchestrator::Routes::PutConfiguration.new(request).call.to_json
         end
 
         # Check Cure configuration is working
-        get "/config/validate" do
+        get "/validate" do
           Cure::Orchestrator::Routes::GetConfigurationValidation.new(request).call.to_json
         end
       end
+
+      namespace "/api/v1/templates" do
+        # Get configuration file
+        get "" do
+          Cure::Orchestrator::Routes::GetTemplates.new(request).call.to_json
+        end
+      end
+
 
       options "*" do
         response.headers["Access-Control-Allow-Methods"] = "OPTIONS, GET, PUT, POST, DELETE"

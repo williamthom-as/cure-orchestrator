@@ -34,7 +34,7 @@ html {
   // Lite theme
   --primary-color-light: hsl(var(--primary-hue) var(--primary-saturation) var(--primary-lightness));
   --primary-text-light: hsl(var(--primary-hue) var(--primary-saturation) 20%);
-  --secondary-text-light: hsl(var(--primary-hue) var(--primary-saturation) 30%);
+  --secondary-text-light: hsl(var(--primary-hue) var(--primary-saturation) 50%);
 
   --menu-background-light: var(--primary-color-light);
   --menu-link-hover-light: hsl(var(--primary-hue) calc(var(--primary-saturation) / 2) calc(var(--primary-lightness) / 1.5));

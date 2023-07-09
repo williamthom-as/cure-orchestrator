@@ -5,6 +5,7 @@ export function configure(config) {
     './value-converters/file-list-to-array.js',
     './value-converters/object-keys.js',
     './value-converters/json.js',
+    './value-converters/time-ago.js',
     './elements/horizontal-nav',
     './elements/parent',
     './elements/panel',

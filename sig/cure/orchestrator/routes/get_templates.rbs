@@ -1,0 +1,9 @@
+module Cure
+  module Orchestrator
+    module Routes
+      class GetTemplates < BaseRoute
+        @config_service: Services::ConfigurationService
+      end
+    end
+  end
+end

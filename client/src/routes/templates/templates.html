@@ -1,0 +1,35 @@
+<template>
+  <table class="table table-overflow">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Created At</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr repeat.for="template of templates" if.bind="templates">
+        <td>
+          <div>
+            ${template.name}
+          </div>
+          <span class="text-small text-secondary">${template.path}</span>
+        </td>
+        <td>
+          <div>
+            ${template.c_time | timeAgo }
+          </div>
+          <span class="text-small text-secondary">${template.c_time}</span>
+        </td>
+        <td class="text-right">
+          <button class="btn btn-secondary btn-sm">View</button>
+        </td>
+      </tr>
+      <tr if.bind="!templates">
+        <td colspan="3">
+          You do not have any templates!
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</template>
