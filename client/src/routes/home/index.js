@@ -3,7 +3,9 @@ import { inject } from 'aurelia-framework';
 @inject('AjaxService')
 export class Index {
 
-  constructor(ea, ajax) {
+  isProcessing = false;
+
+  constructor(ajax) {
     this.ajax = ajax;
   }
 

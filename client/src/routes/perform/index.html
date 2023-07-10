@@ -1,0 +1,49 @@
+<template>
+  <div class="page-header">
+    <div class="title">
+      Perform
+    </div>
+    <div class="actions">
+      <a href="https://github.com/williamthom-as/cure/tree/main/docs" target="_blank">
+        Help <i class="fas fa-question-circle" aria-hidden="true"></i>
+      </a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <panel
+        show-header.bind="true"
+      >
+        <div slot="header">
+          <div class="title">Run</div>
+        </div>
+        <div slot="body">
+          <div class="wizard">
+            <div class="step ${activeStep == $index ? 'active' : ''}" repeat.for="step of steps">
+              <div
+                  class="number"
+                  click.trigger="activeStep = $index">
+                ${$index + 1}
+              </div>
+              <div class="title">
+                ${step.title}
+              </div>
+            </div>
+          </div>
+        </div>
+      </panel>
+    </div>
+    <div class="col">
+      <panel
+          show-header.bind="true"
+      >
+        <div slot="header">
+          <div class="title">${steps[activeStep].title}</div>
+        </div>
+        <div slot="body">
+
+        </div>
+      </panel>
+    </div>
+  </div>
+</template>

@@ -34,6 +34,16 @@ export class App {
         description: 'Get started here'
       }
     },{
+      route: 'perform',
+      moduleId: './routes/perform/index',
+      name: 'perform',
+      title: 'Run',
+      nav: true,
+      settings: {
+        icon: 'fas fa-play',
+        description: 'Perform transforms'
+      }
+    },{
       route: 'templates',
       moduleId: './routes/templates/index',
       name: 'templates',
