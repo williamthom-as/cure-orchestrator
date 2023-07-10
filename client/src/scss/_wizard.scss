@@ -1,4 +1,4 @@
-.wizard {
+.wizard-header {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-evenly;
@@ -13,12 +13,14 @@
     justify-content: center;
     height: 100%;
     width: 6rem;
+    cursor: pointer;
 
     &.active {
+      cursor: default;
+
       .number {
         background: $night;
         box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.3);
-        cursor: default;
       }
 
       .title {
@@ -37,7 +39,6 @@
       font-size: 1rem;
       line-height: 0.5rem;
       font-weight: bolder;
-      cursor: pointer;
       margin-bottom: 0.5rem;
       transition: all 0.3s ease-in-out;
 
@@ -54,4 +55,8 @@
       color: var(--text-secondary);
     }
   }
+}
+
+.wizard-content {
+
 }

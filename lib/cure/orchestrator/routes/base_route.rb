@@ -11,11 +11,12 @@ module Cure
       class BaseRoute
         include Response
 
-        attr_reader :request
+        attr_reader :request, :params
 
         # @param [Sinatra::Request] request
-        def initialize(request)
+        def initialize(request, params)
           @request = request
+          @params = params
         end
 
         def call

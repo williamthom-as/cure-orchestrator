@@ -7,9 +7,9 @@ module Cure
     module Routes
       class GetConfigurationValidation < BaseRoute
 
-        def initialize(request, config_service: Services::ConfigurationService.new)
+        def initialize(request, params, config_service: Services::ConfigurationService.new)
           @config_service = config_service
-          super(request)
+          super(request, params)
         end
 
         def call

@@ -13,4 +13,4 @@ module Cure
   end
 end
 
-Cure::Orchestrator.start
+# Cure::Orchestrator.start

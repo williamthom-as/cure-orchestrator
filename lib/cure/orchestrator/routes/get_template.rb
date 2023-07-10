@@ -3,7 +3,7 @@
 module Cure
   module Orchestrator
     module Routes
-      class GetTemplates < BaseRoute
+      class GetTemplate < BaseRoute
 
         def initialize(request, params, config_service: Services::ConfigurationService.new)
           @config_service = config_service
@@ -12,15 +12,9 @@ module Cure
 
         def call
           directory = @config_service.config_file.fetch("template_directory")
-          templates = Dir.glob("#{directory}/*.rb").map do |file_path|
-            {
-              name: File.basename(file_path),
-              c_time: File.ctime(file_path),
-              path: file_path
-            }
-          end
+          template = File.read("#{directory}/#{@params[:name]}")
 
-          success({templates: templates})
+          success({template: template})
         end
       end
     end

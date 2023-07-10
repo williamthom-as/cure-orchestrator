@@ -160,4 +160,14 @@ export class AjaxService {
           throw error;
         });
   }
+
+  getTemplate(name) {
+    return this.fetch(`/api/v1/templates/${name}`)
+      .then(json => {
+          return json;
+        },
+        error => {
+          throw error;
+        });
+  }
 }

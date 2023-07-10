@@ -31,24 +31,28 @@ module Cure
       namespace "/api/v1/config" do
         # Get configuration file
         get "" do
-          Cure::Orchestrator::Routes::GetConfiguration.new(request).call.to_json
+          Cure::Orchestrator::Routes::GetConfiguration.new(request, params).call.to_json
         end
 
         # Update configuration file
         put "" do
-          Cure::Orchestrator::Routes::PutConfiguration.new(request).call.to_json
+          Cure::Orchestrator::Routes::PutConfiguration.new(request, params).call.to_json
         end
 
         # Check Cure configuration is working
         get "/validate" do
-          Cure::Orchestrator::Routes::GetConfigurationValidation.new(request).call.to_json
+          Cure::Orchestrator::Routes::GetConfigurationValidation.new(request, params).call.to_json
         end
       end
 
       namespace "/api/v1/templates" do
         # Get configuration file
         get "" do
-          Cure::Orchestrator::Routes::GetTemplates.new(request).call.to_json
+          Cure::Orchestrator::Routes::GetTemplates.new(request, params).call.to_json
+        end
+
+        get "/:name" do
+          Cure::Orchestrator::Routes::GetTemplate.new(request, params).call.to_json
         end
       end
 

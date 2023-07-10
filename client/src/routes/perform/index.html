@@ -18,17 +18,28 @@
           <div class="title">Run</div>
         </div>
         <div slot="body">
-          <div class="wizard">
-            <div class="step ${activeStep == $index ? 'active' : ''}" repeat.for="step of steps">
-              <div
-                  class="number"
-                  click.trigger="activeStep = $index">
+          <header class="wizard-header">
+            <div
+                class="step ${activeStep == $index ? 'active' : ''}"
+                click.trigger="activeStep = $index"
+                repeat.for="step of steps"
+            >
+              <div class="number">
                 ${$index + 1}
               </div>
               <div class="title">
                 ${step.title}
               </div>
             </div>
+          </header>
+          <div class="wizard-content">
+            <validatable-select
+                value.bind="model.template_file"
+                label="Template File"
+                option-key="path"
+                option-value="name"
+                values.bind="templates">
+            </validatable-select>
           </div>
         </div>
       </panel>
@@ -41,7 +52,9 @@
           <div class="title">${steps[activeStep].title}</div>
         </div>
         <div slot="body">
-
+           <pre if.bind="template">
+             <code>${template}</code>
+           </pre>
         </div>
       </panel>
     </div>
