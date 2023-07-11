@@ -19,12 +19,12 @@
       cursor: default;
 
       .number {
-        background: $night;
+        background: $blue;
         box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.3);
       }
 
       .title {
-        color: $night;
+        color: $blue;
       }
     }
 
@@ -34,7 +34,7 @@
       height: 2.5rem;
       padding: 1rem;
       background: $gray-500;
-      color: white;
+      color: $gray-200;
       text-align: center;
       font-size: 1rem;
       line-height: 0.5rem;
