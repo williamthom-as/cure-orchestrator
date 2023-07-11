@@ -17,7 +17,7 @@ module Cure
 
           result = {}
           result[:checks] = checks
-          result[:status] = checks.values.any? { |x| x[:valid] == false }
+          result[:status] = checks.values.all? { |x| x[:valid] == true }
 
           success({result: result, message: "Configuration validation complete."})
         end
