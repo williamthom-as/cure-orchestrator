@@ -12,9 +12,9 @@
   transition: all 0.15s ease;
 
   &:disabled {
-    background-color: $gray-800 !important;
-    border-color: $gray-800 !important;
-    color: $gray-700 !important;
+    background-color: $gray-400 !important;
+    border-color: $gray-400 !important;
+    color: $gray-600 !important;
     cursor: default !important;
 
     &:hover {
@@ -77,12 +77,12 @@
   }
 
   &.btn-secondary {
-    border-color: $blue;
-    background-color: $blue;
+    border-color: $night;
+    background-color: $night;
     color: $white;
 
     &:hover {
-      background-color: $blue;
+      background-color: $night;
     }
   }
 

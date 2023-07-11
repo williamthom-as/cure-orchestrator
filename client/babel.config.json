@@ -23,6 +23,14 @@
         "loose": true
       }
     ],
+    [
+      "prismjs", {
+        "languages": ["ruby"],
+        "plugins": ["line-numbers", "show-language"],
+        "theme": "okaidia",
+        "css": true
+      }
+    ],
     "@babel/plugin-syntax-dynamic-import"
   ]
 }

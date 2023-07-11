@@ -19,6 +19,8 @@ export function configure(aurelia) {
     overlayDismiss: false
   });
 
+  aurelia.use.plugin('aurelia-combo');
+
   // Service registry
   aurelia.use.singleton('AppService', AppService);
   aurelia.use.singleton('AjaxService', AjaxService);

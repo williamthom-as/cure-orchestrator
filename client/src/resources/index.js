@@ -13,6 +13,7 @@ export function configure(config) {
     './elements/validatable-select',
     './elements/validatable-select2',
     './elements/toasts',
-    './elements/spinner'
+    './elements/spinner',
+    './elements/prism-code',
   ]);
 }

@@ -58,5 +58,12 @@
 }
 
 .wizard-content {
+  margin-bottom: $gutter;
+  min-height: 16rem;
+}
 
+.wizard-buttons {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
 }

@@ -9,4 +9,9 @@
   &.text-center {
     justify-content: center;
   }
+
+  &.alert-danger {
+    color: $gray-200;
+    background-color: $red;
+  }
 }

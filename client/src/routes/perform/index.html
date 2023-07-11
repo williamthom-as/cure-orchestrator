@@ -9,54 +9,145 @@
       </a>
     </div>
   </div>
-  <div class="row">
-    <div class="col">
-      <panel
-        show-header.bind="true"
-      >
-        <div slot="header">
-          <div class="title">Run</div>
-        </div>
-        <div slot="body">
-          <header class="wizard-header">
-            <div
-                class="step ${activeStep == $index ? 'active' : ''}"
-                click.trigger="activeStep = $index"
-                repeat.for="step of steps"
-            >
-              <div class="number">
-                ${$index + 1}
+  <div if.bind="isProcessing">
+    <spinner></spinner>
+  </div>
+  <div else>
+    <div class="row">
+      <div class="col">
+        <panel
+            show-header.bind="true"
+        >
+          <div slot="header">
+            <div class="title">Run</div>
+          </div>
+          <div slot="body">
+            <header class="wizard-header">
+              <div
+                  class="step ${activeStep == $index ? 'active' : ''}"
+                  click.trigger="activeStep = $index"
+                  repeat.for="step of steps"
+              >
+                <div class="number">
+                  ${$index + 1}
+                </div>
+                <div class="title">
+                  ${step.title}
+                </div>
               </div>
-              <div class="title">
-                ${step.title}
+            </header>
+            <div class="wizard-content">
+              <div class="step-content" show.bind="activeStep == 0">
+                <validatable-select
+                    label="Template File"
+                    option-key="path"
+                    option-value="name"
+                    values.bind="templates"
+                    value.bind="model.template_file"
+                >
+                </validatable-select>
+                <validatable-field
+                    placeholder="Location of CSV file"
+                    value.bind="model.input_file"
+                    errors.bind="errors.input_file"
+                    label="Input File"
+                    type="text"
+                >
+                </validatable-field>
+              </div>
+              <div class="step-content" show.bind="activeStep == 1">
+                <validatable-field
+                    placeholder="Run Name"
+                    value.bind="model.name"
+                    errors.bind="errors.name"
+                    label="Name"
+                    type="text"
+                >
+                </validatable-field>
+                <validatable-field
+                    placeholder="Start Time"
+                    value.bind="model.start_time"
+                    errors.bind="errors.start_time"
+                    label="Start Time"
+                    type="datetime-local"
+                >
+                </validatable-field>
+              </div>
+              <div class="step-content" show.bind="activeStep == 2">
+                <div class="alert alert-danger mb-1" if.bind="hasError">
+                  Please fix the errors before attempting to submit.
+                </div>
+                <table class="table table-overflow">
+                  <tbody>
+                    <tr>
+                      <th>Template</th>
+                      <td
+                        class="${errors.template_file ? 'text-danger' : ''}"
+                      >
+                        ${model.template_file || "not supplied"}
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>Input File</th>
+                      <td
+                        class="${errors.input_file ? 'text-danger' : ''}"
+                      >
+                        ${model.input_file || "not supplied" }</td>
+                    </tr>
+                    <tr>
+                      <th>Name</th>
+                      <td>${model.name  || "not supplied"}</td>
+                    </tr>
+                    <tr>
+                      <th>Start Time</th>
+                      <td>${model.start_time || "not supplied"}</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="text-center" style="margin: 1.5rem 0 0">
+                  <button type="submit" class="btn btn-primary" click.trigger="submit()" disabled.bind="hasError">
+                    Execute Job
+                  </button>
+                </div>
               </div>
             </div>
-          </header>
-          <div class="wizard-content">
-            <validatable-select
-                value.bind="model.template_file"
-                label="Template File"
-                option-key="path"
-                option-value="name"
-                values.bind="templates">
-            </validatable-select>
+            <div class="wizard-buttons">
+              <div>
+                <button
+                    type="submit"
+                    class="btn btn-sm btn-secondary"
+                    click.trigger="previous()"
+                    disabled.bind="activeStep == 0"
+                >
+                  Previous
+                </button>
+              </div>
+              <div>
+                <button
+                    type="submit"
+                    class="btn btn-sm btn-secondary"
+                    click.trigger="next()"
+                    disabled.bind="activeStep >= (steps.length - 1)"
+                >
+                  Next
+                </button>
+              </div>
+            </div>
           </div>
-        </div>
-      </panel>
-    </div>
-    <div class="col">
-      <panel
-          show-header.bind="true"
-      >
-        <div slot="header">
-          <div class="title">${steps[activeStep].title}</div>
-        </div>
-        <div slot="body">
-           <pre if.bind="template">
-             <code>${template}</code>
-           </pre>
-        </div>
-      </panel>
+        </panel>
+      </div>
+      <div class="col">
+        <panel
+            show-header.bind="true"
+        >
+          <div slot="header">
+            <div class="title">Template</div>
+          </div>
+          <div slot="body">
+            <prism-code if.bind="template" code.bind="template"></prism-code>
+          </div>
+        </panel>
+      </div>
     </div>
   </div>
 </template>

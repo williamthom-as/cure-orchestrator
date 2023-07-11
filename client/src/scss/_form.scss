@@ -29,8 +29,9 @@ input[type=file] {
 
 select {
   appearance: none;
-  background-color: white;
-  border: 1px solid $gray-300;
+  color: var(--text-primary);
+  background-color: var(--input-background);
+  border: 1px solid var(--input-background);
   border-radius: 3px;
 
   padding: 0.25rem;

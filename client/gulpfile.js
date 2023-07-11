@@ -47,7 +47,10 @@ const dr = dumber({
   // dumber-module-loader is injected automatically by dumber bundler after prepends.
   prepend: [
     // Promise polyfill for IE
-    require.resolve('promise-polyfill/dist/polyfill.min.js')
+    require.resolve('promise-polyfill/dist/polyfill.min.js'),
+    require.resolve('prismjs/prism.js'),
+    require.resolve('prismjs/components/prism-clike.js'),
+    require.resolve('prismjs/components/prism-ruby.js')
   ],
 
   // append after amd loader and all module definitions in entry bundle.
