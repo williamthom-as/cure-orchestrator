@@ -13,9 +13,27 @@ config = JSON.parse(File.read(config_file_location))
 
 DATABASE = Sequel.sqlite(config["database_file_location"])
 
-unless DATABASE.table_exists? :history
-  DATABASE.create_table :history do
+unless DATABASE.table_exists? :jobs
+  DATABASE.create_table :jobs do
     primary_key :id
-    column :name, String
+    String :name
+    String :template_file, null: false
+    String :input_file, null: false
+    String :status, null: false
+    Integer :error_count, null: false, default: 0
+    String :last_error_message
+    DateTime :created_at, default: Sequel::CURRENT_TIMESTAMP, index: true
+    DateTime :updated_at
+  end
+end
+
+unless DATABASE.table_exists? :job_runs
+  DATABASE.create_table :job_runs do
+    primary_key :id
+    foreign_key :job_id, :jobs
+    String :status, null: false
+    String :error_message
+    DateTime :created_at, default: Sequel::CURRENT_TIMESTAMP, index: true
+    DateTime :updated_at
   end
 end

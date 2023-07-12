@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require "cure/orchestrator/version"
 require "cure/orchestrator/server"
 
 module Cure

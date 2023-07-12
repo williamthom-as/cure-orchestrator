@@ -2,10 +2,13 @@
 
 require "json"
 
+require "cure/orchestrator/models/model_helpers"
+
 module Cure
   module Orchestrator
     module Routes
       class GetConfiguration < BaseRoute
+        include Orchestrator::Models::ModelHelpers
 
         def initialize(request, params, config_service: Services::ConfigurationService.new)
           @config_service = config_service

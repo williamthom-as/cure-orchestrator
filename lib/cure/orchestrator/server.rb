@@ -1,11 +1,13 @@
 # frozen_string_literal: true
 
+require "sequel"
 require "json"
 require "sinatra/base"
 require "sinatra/namespace"
 require "sinatra/cross_origin"
 
-require "cure/orchestrator/routes"
+require "cure/orchestrator/routes/init"
+require "cure/orchestrator/services/init"
 
 module Cure
   module Orchestrator
@@ -14,6 +16,11 @@ module Cure
 
       configure do
         enable :cross_origin
+
+        set :app_config, Services::ConfigurationService.new.config_file
+        set :database, Sequel.sqlite(settings.app_config["database_file_location"])
+
+        require "cure/orchestrator/models/init"
       end
 
       before do
@@ -46,16 +53,16 @@ module Cure
       end
 
       namespace "/api/v1/templates" do
-        # Get configuration file
+        # Get templates
         get "" do
           Cure::Orchestrator::Routes::GetTemplates.new(request, params).call.to_json
         end
 
+        # Get template file
         get "/:name" do
           Cure::Orchestrator::Routes::GetTemplate.new(request, params).call.to_json
         end
       end
-
 
       options "*" do
         response.headers["Access-Control-Allow-Methods"] = "OPTIONS, GET, PUT, POST, DELETE"

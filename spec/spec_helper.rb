@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "cure/orchestrator"
-require "cure/orchestrator/routes"
+require "cure/orchestrator/routes/init"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
