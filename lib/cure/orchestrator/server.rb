@@ -17,7 +17,7 @@ module Cure
       configure do
         enable :cross_origin
 
-        set :app_config, Services::ConfigurationService.new.config_file
+        set :app_config, Services::ConfigurationService.new.config_file || {}
         set :database, Sequel.sqlite(settings.app_config.fetch("database_file_location", ""))
 
         require "cure/orchestrator/models/init"
