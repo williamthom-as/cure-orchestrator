@@ -31,8 +31,8 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   # Uncomment to register a new dependency of your gem
+  spec.add_dependency "puma", "~> 6.3.0"
   spec.add_dependency "sinatra", "~> 3.0.6"
   spec.add_dependency "sinatra-contrib", "~> 3.0.6"
   spec.add_dependency "sinatra-cross_origin", "~> 0.4.0"
-  spec.add_dependency "puma", "~> 6.3.0"
 end

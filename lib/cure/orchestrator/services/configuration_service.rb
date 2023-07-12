@@ -14,7 +14,7 @@ module Cure
           raise "Missing config" unless config
 
           %w[input_directory template_directory database_file_location].each do |location|
-            if File.exist?(config[location.to_s])
+            if File.exist?(config[location].to_s)
               results[location.to_sym] = {valid: true, message: "[#{location}] is present"}
               next
             end

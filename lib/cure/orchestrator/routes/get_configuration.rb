@@ -7,10 +7,14 @@ module Cure
     module Routes
       class GetConfiguration < BaseRoute
 
-        CONFIG_FILE_LOCATION = "/etc/cure/config.json"
+        def initialize(request, params, config_service: Services::ConfigurationService.new)
+          @config_service = config_service
+          super(request, params)
+        end
 
         def call
-          ret = config_file
+          ret = @config_service.config_file
+
           unless ret
             return success({
               config_file: nil, message: "No config file found at #{CONFIG_FILE_LOCATION}"
@@ -18,14 +22,6 @@ module Cure
           end
 
           success({config_file: ret, message: "Configuration is valid."})
-        end
-
-        private
-
-        def config_file
-          return nil unless File.exist? CONFIG_FILE_LOCATION
-
-          JSON.parse(File.read(CONFIG_FILE_LOCATION))
         end
       end
     end

@@ -20,7 +20,7 @@ module Cure
             }
           end
 
-          success({templates: templates})
+          success({templates: templates, message: "test"})
         end
       end
     end
