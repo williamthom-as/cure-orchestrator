@@ -1,7 +1,5 @@
 require "spec_helper"
 
-require "cure/orchestrator/services/configuration_service"
-
 RSpec.describe Cure::Orchestrator::Routes::GetConfigurationValidation do
   let(:config_service) { Cure::Orchestrator::Services::ConfigurationService.new }
   let(:request) { double("request") }

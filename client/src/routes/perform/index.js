@@ -9,7 +9,7 @@ import _ from "lodash";
 @inject(AppRouter, EventAggregator, 'AjaxService', 'Validation', 'AppService')
 export class Index {
   @bindable model = {
-    template_file: null,
+    template_file: "",
     input_file: null,
     name: null,
     start_time: null
@@ -45,6 +45,11 @@ export class Index {
     Promise.all([this.ajax.getTemplates(), this.ajax.getConfig()])
       .then((responses) => {
         this.templates = responses[0].content.templates;
+        this.templates.unshift({
+          name: "Select a template",
+          path: ""
+        });
+
         this.config = responses[1].content.config_file;
 
         this.isProcessing = false;
@@ -77,6 +82,8 @@ export class Index {
         .then(json => {
           this.template = json.content.template;
         });
+    } else {
+      this.template = null;
     }
   }
 

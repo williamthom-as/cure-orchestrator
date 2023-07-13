@@ -6,6 +6,7 @@ export function configure(config) {
     './value-converters/object-keys.js',
     './value-converters/json.js',
     './value-converters/time-ago.js',
+    './value-converters/filter-by.js',
     './elements/horizontal-nav',
     './elements/parent',
     './elements/panel',

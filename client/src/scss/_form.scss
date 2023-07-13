@@ -35,12 +35,15 @@ select {
   border-radius: 3px;
 
   padding: 0.25rem;
-  margin: 0 0 0.5rem;
   width: 100%;
   font-family: inherit;
   font-size: inherit;
   cursor: inherit;
   line-height: inherit;
+
+  &.is-invalid {
+    border-color: $red;
+  }
 }
 
 .select2-container--default {

@@ -20,6 +20,14 @@ module Cure
         set :app_config, Services::ConfigurationService.new.config_file || {}
         set :database, Sequel.sqlite(settings.app_config.fetch("database_file_location", ""))
 
+        Sequel.extension :migration
+        Sequel::Migrator.run(
+          settings.database,
+          File.join(File.dirname(__FILE__), "migrations"),
+          use_transactions: true
+        )
+
+        # Must be loaded after all DB ops done.
         require "cure/orchestrator/models/init"
       end
 

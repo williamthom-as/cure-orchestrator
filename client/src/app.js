@@ -1,11 +1,14 @@
-import { inject } from 'aurelia-framework';
-import { activationStrategy } from 'aurelia-router';
+import {inject} from 'aurelia-framework';
+import {DialogService} from 'aurelia-dialog-lite';
+import {combo} from 'aurelia-combo';
+import {QuickMenuDialog} from "./dialog/quick_menu_dialog";
 
-@inject('AppService')
+@inject(DialogService, 'AppService')
 export class App {
   scheme = 'auto';
 
-  constructor(appService) {
+  constructor(dialogService, appService) {
+    this.dialogService = dialogService;
     this.appService = appService;
   }
 
@@ -69,6 +72,17 @@ export class App {
   navigateMenu(routeHref) {
     this.opened = null;
     this.router.navigate(routeHref, {});
+  }
+
+  @combo('ctrl+j', 'command+j')
+  quickMenu() {
+    this.dialogService.open({
+      viewModel: QuickMenuDialog,
+      model: {},
+    }).then(
+      (resp) => {},
+      () => {}
+    )
   }
 
   changeScheme(scheme) {
