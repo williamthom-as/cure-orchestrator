@@ -6,6 +6,7 @@ import {QuickMenuDialog} from "./dialog/quick_menu_dialog";
 @inject(DialogService, 'AppService')
 export class App {
   scheme = 'auto';
+  modalOpen = false;
 
   constructor(dialogService, appService) {
     this.dialogService = dialogService;
@@ -13,6 +14,7 @@ export class App {
   }
 
   bind() {
+
     const scheme = localStorage.getItem('color_scheme');
     if (scheme) {
       this.changeScheme(scheme);
@@ -76,13 +78,20 @@ export class App {
 
   @combo('ctrl+j', 'command+j')
   quickMenu() {
-    this.dialogService.open({
-      viewModel: QuickMenuDialog,
-      model: {},
-    }).then(
-      (resp) => {},
-      () => {}
-    )
+    if (this.modalOpen === false) {
+      this.modalOpen = true
+      this.dialogService.open({
+        viewModel: QuickMenuDialog,
+        model: {},
+      }).then(
+        (_resp) => {},
+        () => {}
+      ).finally(
+        () => {
+          this.modalOpen = false;
+        }
+      )
+    }
   }
 
   changeScheme(scheme) {

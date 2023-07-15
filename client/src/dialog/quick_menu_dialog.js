@@ -15,6 +15,13 @@ export class QuickMenuDialog {
 
   activate(model) {
     this.model = model;
+
+    const currentRoute = this.router.currentInstruction.config.name;
+    this.active = this.router.navigation.findIndex(
+      (elem) => {
+        return elem.config.name === currentRoute
+      }
+    );
   }
 
   @combo('up')
