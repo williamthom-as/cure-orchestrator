@@ -11,6 +11,15 @@ require "cure/orchestrator/services/init"
 
 module Cure
   module Orchestrator
+
+    class Helpers
+      def self.init_database(app_config)
+        return Sequel.sqlite if ENV["RACK_ENV"] == "test"
+
+        Sequel.sqlite(app_config.fetch("database_file_location", nil))
+      end
+    end
+
     class Server < Sinatra::Base
       register Sinatra::Namespace
 
@@ -18,7 +27,7 @@ module Cure
         enable :cross_origin
 
         set :app_config, Services::ConfigurationService.new.config_file || {}
-        set :database, Sequel.sqlite(settings.app_config.fetch("database_file_location", ""))
+        set :database, Helpers.init_database(settings.app_config)
 
         Sequel.extension :migration
         Sequel::Migrator.run(
@@ -70,6 +79,10 @@ module Cure
         get "/:name" do
           Cure::Orchestrator::Routes::GetTemplate.new(request, params).call.to_json
         end
+
+        post "/:perform" do
+
+        end
       end
 
       options "*" do
@@ -79,5 +92,6 @@ module Cure
         halt 200
       end
     end
+
   end
 end

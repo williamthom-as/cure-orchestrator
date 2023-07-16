@@ -5,7 +5,7 @@ require "sequel"
 module Cure
   module Orchestrator
     module Models
-      class JobRuns < Sequel::Model(:job_runs)
+      class JobRun < Sequel::Model(:job_runs)
         many_to_one :jobs, key: :job_id
       end
     end
