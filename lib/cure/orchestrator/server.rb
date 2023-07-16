@@ -43,7 +43,8 @@ module Cure
       before do
         content_type :json
         response.headers["Access-Control-Allow-Methods"] = "OPTIONS, GET, PUT, POST, DELETE"
-        response.headers["Access-Control-Allow-Headers"] = "X-Requested-With, X-HTTP-Method-Override, Content-Type, Cache-Control, Accept"
+        response.headers["Access-Control-Allow-Headers"] =
+          "X-Requested-With, X-HTTP-Method-Override, Content-Type, Cache-Control, Accept"
         response.headers["Access-Control-Allow-Origin"] = "*"
       end
 
@@ -79,15 +80,23 @@ module Cure
         get "/:name" do
           Cure::Orchestrator::Routes::GetTemplate.new(request, params).call.to_json
         end
+      end
 
-        post "/:perform" do
+      namespace "/api/v1/jobs" do
+
+        get "" do
+          # fill me in
+        end
+
+        post "" do
 
         end
       end
 
       options "*" do
         response.headers["Access-Control-Allow-Methods"] = "OPTIONS, GET, PUT, POST, DELETE"
-        response.headers["Access-Control-Allow-Headers"] = "X-Requested-With, X-HTTP-Method-Override, Content-Type, Cache-Control, Accept"
+        response.headers["Access-Control-Allow-Headers"] =
+          "X-Requested-With, X-HTTP-Method-Override, Content-Type, Cache-Control, Accept"
         response.headers["Access-Control-Allow-Origin"] = "*"
         halt 200
       end

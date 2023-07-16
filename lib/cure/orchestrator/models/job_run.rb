@@ -6,7 +6,7 @@ module Cure
   module Orchestrator
     module Models
       class JobRun < Sequel::Model(:job_runs)
-        many_to_one :jobs, key: :job_id
+        many_to_one :job, key: :job_id
       end
     end
   end
