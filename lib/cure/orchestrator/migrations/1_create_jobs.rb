@@ -5,8 +5,7 @@ Sequel.migration do
     create_table :jobs do
       primary_key :id
       String :name
-      String :template_file, null: false
-      String :input_file, null: false
+      String :job_args, text: true, null: false
       String :status, null: false
       Integer :error_count, null: false, default: 0
       String :last_error_message

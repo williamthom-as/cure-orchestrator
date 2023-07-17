@@ -1,0 +1,19 @@
+module Cure
+  module Processor
+    class Server
+      @config: Hash[Symbol, Object]
+      @pids: Array[Integer]
+      @pids_mutex: Thread::Mutex
+
+      def start: -> void
+
+      private
+
+      def pids_mutex: -> Thread::Mutex
+
+      def retrieve_job: -> (nil | Object)
+
+      def shut_down: -> void
+    end
+  end
+end
