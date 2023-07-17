@@ -88,6 +88,3 @@ module Cure
     end
   end
 end
-
-svr = Cure::Processor::Server.new
-svr.start
