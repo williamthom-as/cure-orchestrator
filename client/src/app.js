@@ -39,6 +39,16 @@ export class App {
         description: 'Get started here'
       }
     },{
+      route: 'history',
+      moduleId: './routes/history/index',
+      name: 'history',
+      title: 'History',
+      nav: true,
+      settings: {
+        icon: 'fas fa-history',
+        description: 'See all history'
+      }
+    },{
       route: 'perform',
       moduleId: './routes/perform/index',
       name: 'perform',

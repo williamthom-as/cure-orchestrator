@@ -1,0 +1,34 @@
+<template>
+  <table class="table table-overflow">
+    <thead>
+      <tr>
+        <th>Created</th>
+        <th>Name</th>
+        <th>Status</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr repeat.for="job of jobs" if.bind="jobs">
+        <td>
+          <div>
+            ${job.created_at | timeAgo }
+          </div>
+          <span class="text-small text-secondary">${job.updated_at}</span>
+        </td>
+        <td>
+          ${job.name}
+        </td>
+        <td>
+          ${job.status}
+        </td>
+        <td></td>
+      </tr>
+      <tr if.bind="!jobs">
+        <td colspan="4">
+          You do not have any jobs!
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</template>

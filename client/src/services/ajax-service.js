@@ -170,4 +170,14 @@ export class AjaxService {
           throw error;
         });
   }
+
+  getJobs() {
+    return this.fetch('/api/v1/jobs')
+      .then(json => {
+          return json;
+        },
+        error => {
+          throw error;
+        });
+  }
 }

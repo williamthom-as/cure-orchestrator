@@ -5,14 +5,16 @@ module Cure
     module Routes
       class PostJob < BaseRoute
 
-        def initialize(request, params)
-          super(request, params)
-        end
-
         def call
           job_reqs = parsed_request
 
-          success({template: template})
+          job = Cure::Orchestrator::Models::Job.create(
+            name: "TestJob",
+            job_args: "{}",
+            status: "pending"
+          )
+
+          success({job: job.to_h, message: "Job posted!"})
         end
       end
     end

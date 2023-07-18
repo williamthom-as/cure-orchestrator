@@ -8,3 +8,6 @@ require "cure/orchestrator/routes/config/get_configuration_validation"
 
 require "cure/orchestrator/routes/templates/get_templates"
 require "cure/orchestrator/routes/templates/get_template"
+
+require "cure/orchestrator/routes/jobs/post_job"
+require "cure/orchestrator/routes/jobs/get_jobs"

@@ -77,11 +77,11 @@ module Cure
       namespace "/api/v1/jobs" do
 
         get "" do
-          # fill me in
+          Cure::Orchestrator::Routes::GetJobs.new(request, params).call.to_json
         end
 
         post "" do
-
+          Cure::Orchestrator::Routes::PostJob.new(request, params).call.to_json
         end
       end
 
