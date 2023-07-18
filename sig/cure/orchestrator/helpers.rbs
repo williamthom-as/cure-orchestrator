@@ -1,0 +1,7 @@
+module Cure
+  module Orchestrator
+    class Helpers
+      def self.init_database: -> untyped
+    end
+  end
+end

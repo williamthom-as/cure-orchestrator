@@ -5,8 +5,7 @@ RSpec.describe Cure::Orchestrator::Models::JobRun do
   before :all do
     @job = Cure::Orchestrator::Models::Job.create(
       name: "TestJob",
-      template_file: "/some/dir",
-      input_file: "/some/other/dir",
+      job_args: "{}",
       status: "pending"
     )
   end

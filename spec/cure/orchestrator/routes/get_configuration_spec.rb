@@ -1,4 +1,4 @@
-require "spec_helper"
+# frozen_string_literal: true
 
 RSpec.describe Cure::Orchestrator::Routes::GetConfiguration do
   let(:config_service) { double("config_service") }

@@ -2,6 +2,8 @@ module Cure
   module Processor
     class Server
       @config: Hash[Symbol, Object]
+      @database: untyped
+      @database_mutex: Thread::Mutex
       @pids: Array[Integer]
       @pids_mutex: Thread::Mutex
 
@@ -9,9 +11,13 @@ module Cure
 
       private
 
+      def boot_init: -> void
+
+      def database_mutex: -> Thread::Mutex
+
       def pids_mutex: -> Thread::Mutex
 
-      def retrieve_job: -> (nil | Object)
+      def retrieve_job: -> (nil | Cure::Orchestrator::Models::Job)
 
       def shut_down: -> void
     end

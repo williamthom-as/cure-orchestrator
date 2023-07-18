@@ -1,0 +1,11 @@
+module Cure
+  module Orchestrator
+    module Models
+      class Job
+        def self.next_pending_job: -> Cure::Orchestrator::Models::Job
+
+        def update_status: -> Cure::Orchestrator::Models::Job
+      end
+    end
+  end
+end

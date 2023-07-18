@@ -1,4 +1,4 @@
-require "spec_helper"
+# frozen_string_literal: true
 
 RSpec.describe Cure::Orchestrator::Routes::GetConfigurationValidation do
   let(:config_service) { Cure::Orchestrator::Services::ConfigurationService.new }

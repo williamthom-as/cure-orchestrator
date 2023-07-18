@@ -6,19 +6,12 @@ require "sinatra/base"
 require "sinatra/namespace"
 require "sinatra/cross_origin"
 
+require "cure/orchestrator/helpers"
 require "cure/orchestrator/routes/init"
 require "cure/orchestrator/services/init"
 
 module Cure
   module Orchestrator
-
-    class Helpers
-      def self.init_database(app_config)
-        return Sequel.sqlite if ENV["RACK_ENV"] == "test"
-
-        Sequel.sqlite(app_config.fetch("database_file_location", nil))
-      end
-    end
 
     class Server < Sinatra::Base
       register Sinatra::Namespace
@@ -28,13 +21,6 @@ module Cure
 
         set :app_config, Services::ConfigurationService.new.config_file || {}
         set :database, Helpers.init_database(settings.app_config)
-
-        Sequel.extension :migration
-        Sequel::Migrator.run(
-          settings.database,
-          File.join(File.dirname(__FILE__), "migrations"),
-          use_transactions: true
-        )
 
         # Must be loaded after all DB ops done.
         require "cure/orchestrator/models/init"
