@@ -10,6 +10,7 @@ require "cure/orchestrator/helpers"
 require "cure/orchestrator/routes/init"
 require "cure/orchestrator/services/init"
 
+
 module Cure
   module Orchestrator
 
@@ -24,6 +25,11 @@ module Cure
 
         # Must be loaded after all DB ops done.
         require "cure/orchestrator/models/init"
+        require "cure/processor/server"
+
+        Thread.new do
+          Cure::Processor::Server.new.start
+        end
       end
 
       before do

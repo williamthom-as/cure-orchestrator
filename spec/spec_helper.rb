@@ -1,16 +1,20 @@
 # frozen_string_literal: true
 
+require "sequel"
+
 DATABASE_LOCATION = "spec/test.sql"
 
 ENV["RACK_ENV"] = "test"
 ENV["RACK_TEST_DB_LOCATION"] = DATABASE_LOCATION
 
-require "sequel"
+unless File.exist? DATABASE_LOCATION
+  Sequel.sqlite(DATABASE_LOCATION)
+end
+
 require "cure/orchestrator"
 require "cure/orchestrator/routes/init"
 require "cure/orchestrator/services/init"
 require "cure/orchestrator/models/init"
-
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

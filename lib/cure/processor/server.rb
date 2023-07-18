@@ -23,8 +23,6 @@ module Cure
       end
 
       def start # rubocop:disable Metrics/AbcSize
-        boot_init
-
         loop do
           # Check if all processes are taken, sleep
           if @config[:process_limit] == @pids.size
@@ -46,7 +44,6 @@ module Cure
             sleep @config[:sleep_seconds]
             redo
           end
-
 
           # Work found, queue job
           job.update_status("started")
@@ -74,24 +71,8 @@ module Cure
           sleep 1
         end
       rescue SignalException => _e
-        puts "Shutting down gracefully..."
+        puts "Processing server shutting down gracefully..."
         shut_down
-      end
-
-      private
-
-      def boot_init
-        # When there are more than a few tasks,
-        # this should be broken out into classes.
-
-        config =
-          if ENV["RACK_ENV"] == "test"
-            {}
-          else
-            JSON.parse(File.read("/etc/cure/config.json"))
-          end
-
-        @database = Cure::Orchestrator::Helpers.init_database(config)
       end
 
       def shut_down
@@ -100,6 +81,8 @@ module Cure
         puts "Killing #{@pids.size} existing running pids"
         @pids.each { |pid| Process.kill(9, pid) }
       end
+
+      private
 
       def retrieve_job
         # this will connect to db
