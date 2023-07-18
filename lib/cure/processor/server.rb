@@ -83,8 +83,15 @@ module Cure
       def boot_init
         # When there are more than a few tasks,
         # this should be broken out into classes.
-        config = JSON.parse(File.read("/etc/cure/config.json"))
-        @database = Cure::Orchestrator::Helpers.init_database(config["database_file_location"])
+
+        config =
+          if ENV["RACK_ENV"] == "test"
+            {}
+          else
+            JSON.parse(File.read("/etc/cure/config.json"))
+          end
+
+        @database = Cure::Orchestrator::Helpers.init_database(config)
       end
 
       def shut_down
