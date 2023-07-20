@@ -6,9 +6,8 @@ module Cure
   module Processor
     class CureTransformJob < BaseJob
       def _perform(_args)
-        puts "In test!"
+        raise "Broken!"
       end
-
     end
   end
 end

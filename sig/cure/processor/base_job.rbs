@@ -1,11 +1,13 @@
 module Cure
   module Processor
     class BaseJob
-      def self.create_job: -> self
+      def _perform: (Job) -> void
 
-      def _perform: -> void
+      def perform: (Job) -> void
 
-      def perform: -> void
+      private
+
+      def log_job_run: (Job) -> untyped
     end
   end
 end

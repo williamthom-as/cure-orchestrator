@@ -38,5 +38,12 @@ RSpec.describe Cure::Processor::Server do
     Cure::Orchestrator::Models::Job.all.each do |job|
       expect(job.status).to eq("complete")
     end
+
+    job_runs = Cure::Orchestrator::Models::JobRun.all
+    expect(job_runs.length).to eq(2)
+
+    job_runs.each do |job|
+      expect(job.status).to eq("complete")
+    end
   end
 end

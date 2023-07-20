@@ -1,15 +1,11 @@
 module Cure
   module Orchestrator
     module Models
-      class Job
-        def self.all_with_runs: -> Array[Hash[Symbol, Object]]
+      class JobRun
+        def self.create_new: (Job) -> self
 
-        def self.next_pending_job: -> self
-
-        def update_status: -> self
         def mark_complete: -> void
         def mark_error: (String, String) -> void
-
       end
     end
   end
