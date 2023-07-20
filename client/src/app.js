@@ -39,16 +39,6 @@ export class App {
         description: 'Get started here'
       }
     },{
-      route: 'history',
-      moduleId: './routes/history/index',
-      name: 'history',
-      title: 'History',
-      nav: true,
-      settings: {
-        icon: 'fas fa-history',
-        description: 'See all history'
-      }
-    },{
       route: 'perform',
       moduleId: './routes/perform/index',
       name: 'perform',
@@ -57,6 +47,16 @@ export class App {
       settings: {
         icon: 'fas fa-play',
         description: 'Perform transforms'
+      }
+    },{
+      route: 'history',
+      moduleId: './routes/history/index',
+      name: 'history',
+      title: 'Jobs',
+      nav: true,
+      settings: {
+        icon: 'fas fa-history',
+        description: 'See jobs history'
       }
     },{
       route: 'templates',

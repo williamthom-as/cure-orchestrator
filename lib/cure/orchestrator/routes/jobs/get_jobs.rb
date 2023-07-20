@@ -6,7 +6,7 @@ module Cure
       class GetJobs < BaseRoute
 
         def call
-          jobs = Cure::Orchestrator::Models::Job.all.map(&:values)
+          jobs = Cure::Orchestrator::Models::Job.all_with_runs
           success({jobs: jobs, message: "Successfully got jobs"})
         end
       end

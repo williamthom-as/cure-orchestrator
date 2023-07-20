@@ -180,4 +180,14 @@ export class AjaxService {
           throw error;
         });
   }
+
+  createJob(model) {
+    return this.postUsingJSON('/api/v1/jobs', model)
+      .then(json => {
+          return json;
+        },
+        error => {
+          throw error;
+        });
+  }
 }

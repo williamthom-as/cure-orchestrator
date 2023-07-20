@@ -14,14 +14,17 @@
     <div class="col">
       <panel
         show-header.bind="true"
-        action-one-function.call="console.log()"
-        action-one-icon="fa-plus"
+        action-one-function.call="reload()"
+        action-one-icon="fa-circle-notch"
+        action-two-function.call="add()"
+        action-two-icon="fa-plus"
       >
         <div slot="header">
           <div class="title">Jobs</div>
         </div>
         <div slot="body">
-          <jobs></jobs>
+          <spinner if.bind="isProcessing"></spinner>
+          <jobs jobs.bind="jobs" if.bind="jobs"></jobs>
         </div>
       </panel>
     </div>

@@ -9,7 +9,7 @@ module Cure
 
         private
 
-        def parsed_request: -> Hash[Symbol, Object]
+        def parsed_request: -> Hash[String, Object]
       end
     end
   end

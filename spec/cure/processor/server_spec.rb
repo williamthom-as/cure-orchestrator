@@ -8,12 +8,14 @@ RSpec.describe Cure::Processor::Server do
   before do
     Cure::Orchestrator::Models::Job.create(
       name: "SimpleJob",
+      job_type: "Test",
       job_args: "{}",
       status: "pending"
     )
 
     Cure::Orchestrator::Models::Job.create(
       name: "SimpleJob2",
+      job_type: "Test",
       job_args: "{}",
       status: "pending"
     )

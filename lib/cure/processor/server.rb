@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 require "timeout"
-require "cure/processor/job"
+
+require "cure/processor/jobs/init"
+
 require "cure/orchestrator/helpers"
 require "cure/orchestrator/models/job"
 
@@ -11,7 +13,7 @@ module Cure
 
       def initialize(
         process_limit: 2,
-        sleep_seconds: 5,
+        sleep_seconds: 60,
         time_out_seconds: 3600
       )
         @pids = []
@@ -28,7 +30,7 @@ module Cure
           if @config[:process_limit] == @pids.size
             puts "waiting for pids to release"
 
-            sleep(@config[:sleep_seconds])
+            sleep @config[:sleep_seconds]
             redo
           end
 
@@ -50,7 +52,9 @@ module Cure
           pid = fork do
             Timeout.timeout(@config[:time_out_seconds]) do
               puts "Queueing job #{job.name}"
-              Cure::Processor::Job.new.perform(job, @database)
+
+              handler = Kernel.const_get("Cure::Processor::#{job.job_type}Job").new
+              handler.perform(job)
             end
           end
 

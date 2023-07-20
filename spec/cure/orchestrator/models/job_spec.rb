@@ -7,6 +7,7 @@ RSpec.describe Cure::Orchestrator::Models::Job do
     job = described_class.create(
       name: "TestJob",
       job_args: "{}",
+      job_type: "Test",
       status: "pending"
     )
 
@@ -20,12 +21,14 @@ RSpec.describe Cure::Orchestrator::Models::Job do
     described_class.create(
       name: "TestJob",
       job_args: "{}",
+      job_type: "Test",
       status: "pending"
     )
 
     described_class.create(
       name: "TestJob2",
       job_args: "{}",
+      job_type: "Test",
       status: "pending"
     )
 

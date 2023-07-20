@@ -5,6 +5,7 @@ RSpec.describe Cure::Orchestrator::Models::JobRun do
   before :all do
     @job = Cure::Orchestrator::Models::Job.create(
       name: "TestJob",
+      job_type: "Test",
       job_args: "{}",
       status: "pending"
     )

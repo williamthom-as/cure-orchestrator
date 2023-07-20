@@ -4,8 +4,9 @@ module Cure
   module Processor
 
     # This is just a marker class basically
-    class Job
-      def perform(job, db_svc)
+    class BaseJob
+
+      def perform(job)
         puts "-- #{job.id} #{job.status} status"
 
         job.update_status("complete")

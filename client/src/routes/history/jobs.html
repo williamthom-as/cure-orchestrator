@@ -2,25 +2,31 @@
   <table class="table table-overflow">
     <thead>
       <tr>
-        <th>Created</th>
         <th>Name</th>
+        <th>Created</th>
         <th>Status</th>
+        <th>Error Count</th>
         <th></th>
       </tr>
     </thead>
     <tbody>
       <tr repeat.for="job of jobs" if.bind="jobs">
         <td>
-          <div>
-            ${job.created_at | timeAgo }
-          </div>
-          <span class="text-small text-secondary">${job.updated_at}</span>
-        </td>
-        <td>
           ${job.name}
         </td>
         <td>
+          <div>
+            ${job.created_at | timeAgo }
+          </div>
+          <span class="text-small text-secondary">
+            ${job.updated_at}
+          </span>
+        </td>
+        <td>
           ${job.status}
+        </td>
+        <td>
+          ${job.error_count}
         </td>
         <td></td>
       </tr>

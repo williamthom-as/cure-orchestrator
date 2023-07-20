@@ -7,6 +7,9 @@ export class Panel {
   @bindable actionOneFunction = null;
   @bindable actionOneIcon = null;
 
+  @bindable actionTwoFunction = null;
+  @bindable actionTwoIcon = null;
+
   panelCss() {
     if (this.maxHeight) {
       return `max-height: ${this.maxHeight}rem;`;

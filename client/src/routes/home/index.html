@@ -1,5 +1,6 @@
 <template>
   <require from="./tiles/config-tile.js"></require>
+  <require from="../history/jobs"></require>
   <div class="page-header">
     <div class="title">
       Home
@@ -33,7 +34,10 @@
           Total Runs
         </div>
         <div class="body medium-text">
-          0
+          <span if.bind="!isProcessing">
+            ${jobs.length}
+          </span>
+          <spinner if.bind="isProcessing"></spinner>
         </div>
       </div>
       <div class="box">
@@ -41,7 +45,15 @@
           Last Run
         </div>
         <div class="body medium-text">
-          Never
+          <div if.bind="!isProcessing">
+            ${lastRun | timeAgo }
+            <div class="text-small text-center">
+              ${lastRun}
+            </div>
+          </div>
+          <div if.bind="isProcessing">
+            <spinner ></spinner>
+          </div>
         </div>
       </div>
       <div class="box">
@@ -49,7 +61,10 @@
           Templates
         </div>
         <div class="body medium-text">
-          0
+          <span if.bind="!isProcessing">
+            ${templates.length}
+          </span>
+          <spinner if.bind="isProcessing"></spinner>
         </div>
       </div>
     </div>
@@ -61,25 +76,7 @@
           <div class="title">Last Runs</div>
         </div>
         <div slot="body">
-          <table class="table">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Template</th>
-                <th>Status</th>
-                <th>Date</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td colspan="4" style="padding: 1rem 0">
-                  <div class="alert alert-info text-center">
-                    You have no recent runs. Would you like to start one?
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+          <jobs jobs.bind="lastJobsRun"></jobs>
         </div>
       </panel>
     </div>

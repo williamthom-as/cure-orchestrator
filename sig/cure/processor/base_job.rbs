@@ -1,0 +1,11 @@
+module Cure
+  module Processor
+    class BaseJob
+      def self.create_job: -> self
+
+      def _perform: -> void
+
+      def perform: -> void
+    end
+  end
+end

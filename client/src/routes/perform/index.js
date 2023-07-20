@@ -16,11 +16,13 @@ export class Index {
   };
 
   isProcessing = false;
-  triedOnce = false;
-
   activeStep = 0;
 
+  formProcessing = false;
+  triedOnce = false;
+
   templates = null;
+  config = null;
 
   steps = [
     {title: "Job Inputs"},
@@ -57,10 +59,27 @@ export class Index {
   }
 
   submit() {
-    if (this.isProcessing) return;
+    if (this.formProcessing) return;
 
     this.triedOnce = true;
     if (this.hasError) return;
+    this.ajax.createJob(this.model)
+      .then(
+        (json) => {
+          if (json.success) {
+            this.errorMessage = null;
+
+            this.ea.publish('job-saved');
+            this.app.showInfo("Success!", json.content.message);
+          } else {
+            this.app.showError("Error!", json.content.message);
+          }
+        },
+        _err => {
+          this.app.showError("Error!", json.content.message);
+        }
+      )
+      .finally(() => this.formProcessing = false);
   }
 
   @computedFrom('triedOnce', 'model.template_file', 'model.input_file')
