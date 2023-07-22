@@ -6,7 +6,7 @@ module Cure
   module Orchestrator
     module Models
       class Job < Sequel::Model(:jobs)
-        one_to_many :job_runs, key: :job_id
+        one_to_many :job_runs, key: :job_id, on_delete: :destroy
 
         class << self
           def all_with_runs

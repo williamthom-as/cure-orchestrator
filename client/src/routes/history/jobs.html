@@ -14,7 +14,9 @@
       <tr repeat.for="job of jobs" if.bind="jobs">
         <td>
           <div>
-            ${job.name}
+            <a route-href="route: show-job; params.bind: { id: job.id }">
+              ${job.name ? job.name : 'unknown'}
+            </a>
           </div>
           <span class="text-small text-secondary">
             ${job.job_args.template_file}

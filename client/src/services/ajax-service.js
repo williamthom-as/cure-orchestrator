@@ -181,6 +181,16 @@ export class AjaxService {
         });
   }
 
+  getJob(id) {
+    return this.fetch(`/api/v1/jobs/${id}`)
+      .then(json => {
+          return json;
+        },
+        error => {
+          throw error;
+        });
+  }
+
   createJob(model) {
     return this.postUsingJSON('/api/v1/jobs', model)
       .then(json => {

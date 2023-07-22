@@ -59,6 +59,15 @@ export class App {
         description: 'See jobs history'
       }
     },{
+      route: 'history/:id/show',
+      moduleId: './routes/history/show',
+      name: 'show-job',
+      title: 'Job',
+      nav: false,
+      settings: {
+        description: 'Show job'
+      }
+    },{
       route: 'templates',
       moduleId: './routes/templates/index',
       name: 'templates',

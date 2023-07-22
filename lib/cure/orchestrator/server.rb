@@ -80,6 +80,10 @@ module Cure
           Cure::Orchestrator::Routes::GetJobs.new(request, params).call.to_json
         end
 
+        get "/:id" do
+          Cure::Orchestrator::Routes::GetJob.new(request, params).call.to_json
+        end
+
         post "" do
           Cure::Orchestrator::Routes::PostJob.new(request, params).call.to_json
         end

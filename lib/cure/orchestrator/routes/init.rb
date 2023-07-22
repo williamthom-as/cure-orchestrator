@@ -11,3 +11,4 @@ require "cure/orchestrator/routes/templates/get_template"
 
 require "cure/orchestrator/routes/jobs/post_job"
 require "cure/orchestrator/routes/jobs/get_jobs"
+require "cure/orchestrator/routes/jobs/get_job"
