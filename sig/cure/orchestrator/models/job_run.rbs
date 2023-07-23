@@ -2,6 +2,8 @@ module Cure
   module Orchestrator
     module Models
       class JobRun
+        def self.all_for_job: -> Array[Hash[String, Object]]
+
         def self.create_new: (Job) -> self
 
         def mark_complete: -> void

@@ -46,8 +46,7 @@ export class Index {
     if (!this.jobs || this.jobs.length === 0) {
       return []
     } else {
-      console.log(",esdfsdd", this.jobs.slice(0).slice(-5))
-      return this.jobs.slice(0).slice(-5);
+      return this.jobs.slice(0).slice(-5).reverse();
     }
   }
 }

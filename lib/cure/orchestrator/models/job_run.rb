@@ -17,6 +17,10 @@ module Cure
           )
         end
 
+        def self.all_for_job(job)
+          where(job_id: job[:id]).all.map(&:values)
+        end
+
         def mark_complete
           update(
             status: "complete",

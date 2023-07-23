@@ -5,7 +5,7 @@
   border-radius: 0.25rem;
   padding: 0.5rem;
 
-  font-weight: 600;
+  font-weight: 400;
   font-family: "Noto Sans", sans-serif;
   cursor: pointer;
 
@@ -63,7 +63,7 @@
 
   &:hover {
     color: $white;
-    box-shadow: 0 0 0.25rem 0 $gray-600;
+    box-shadow: 0 0 0.5rem 0 $gray-600;
   }
 
   &.btn-primary {
