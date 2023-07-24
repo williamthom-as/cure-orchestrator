@@ -1,4 +1,5 @@
 # frozen_string_literal: true
 
-require "cure/orchestrator/models/job"
-require "cure/orchestrator/models/job_run"
+Dir[File.join(File.dirname(__FILE__), "**/*.rb")].each do |file_path|
+  require file_path
+end
