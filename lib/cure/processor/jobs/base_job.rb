@@ -16,6 +16,7 @@ module Cure
         job.mark_complete
 
       rescue StandardError => e
+        puts "[#{e.class}] #{e.message}"
         job.mark_error(e.class, e.message)
       end
 
