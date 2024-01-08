@@ -9,7 +9,8 @@ running jobs and simple SPA for interacting with the API.
 
 It is functional, but very limited in capability. This is not likely to change any time soon.
 
-![screenshot](https://github.com/williamthom-as/cure-orchestrator/assets/8381190/91d437bb-1b2e-406d-a8bc-3219597e6a2a)
+![screenshot](https://github.com/williamthom-as/cure-orchestrator/assets/8381190/83fc2231-aa10-449d-b981-6756f74dbfb9)
+*Screenshot of the web app scheduling a task*
 
 ## Installation
 
