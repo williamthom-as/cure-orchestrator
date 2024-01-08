@@ -2,9 +2,12 @@
 
 ![run tests](https://github.com/williamthom-as/cure-orchestrator/actions/workflows/main.yml/badge.svg)
 
-Cure Orchestrator is a web app and processing server for [Cure](https://github.com/williamthom-as/cure).
+Cure Orchestrator is a web app and low-dependency processing server for [Cure](https://github.com/williamthom-as/cure).
 
-It is not yet fully functional.
+The project has three components; a REST API for managing and scheduling Cure jobs, an independent processing server for
+running jobs and simple SPA for interacting with the API.
+
+It is functional, but very limited in capability. This is not likely to change any time soon.
 
 ## Installation
 
@@ -19,15 +22,16 @@ Install it yourself as:
 
 ## Usage
 
-### CLI
+Run Rack and background processing server.
 
-### Try it out
+    bundle exec rackup -p 3000
+
+Run frontend
+
+    cd client && npm start
 
 ## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
 ## Contributing
 
