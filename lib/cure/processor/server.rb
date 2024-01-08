@@ -89,8 +89,8 @@ module Cure
       private
 
       def retrieve_job
-        # this will connect to db
-        Cure::Orchestrator::Models::Job.next_pending_job
+        # This will connect to db to get job
+        Orchestrator::Models::Job.next_pending_job
       end
 
       def pids_mutex

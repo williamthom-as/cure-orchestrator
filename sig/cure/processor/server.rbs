@@ -17,7 +17,8 @@ module Cure
 
       def pids_mutex: -> Thread::Mutex
 
-      def retrieve_job: -> (nil | Cure::Orchestrator::Models::Job)
+      # How do i return a class?
+      def retrieve_job: -> (nil | Orchestrator::Models::Job)
 
       def shut_down: -> void
     end

@@ -3,13 +3,11 @@ module Cure
     module Models
       class Job
         def self.all_with_runs: -> Array[Hash[Symbol, Object]]
+        def self.next_pending_job: -> Job
 
-        def self.next_pending_job: -> self
-
-        def update_status: -> self
+        def update_status: -> Job
         def mark_complete: -> void
         def mark_error: (String, String) -> void
-
       end
     end
   end

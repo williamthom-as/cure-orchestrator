@@ -11,4 +11,4 @@ gem "rspec", "~> 3.0"
 
 gem "rubocop", "~> 1.21"
 
-gem "cure", git: "https://github.com/williamthom-as/cure.git"
+gem "cure", git: "https://github.com/williamthom-as/cure.git", branch: "main"
